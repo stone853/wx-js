@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "设置",
+  "usingComponents": { 
+    "eckes-scroll":"../../../../dist/eckes/scroll/index",
+    "eckes-input":"../../../../dist/eckes/input/index",
+    "van-icon":"../../../../dist/vant-weapp/icon/index",
+    "van-sidebar":"../../../../dist/vant-weapp/sidebar/index",
+    "van-sidebar-item":"../../../../dist/vant-weapp/sidebar-item/index",
+    "van-empty":"../../../../dist/vant-weapp/empty/index",
+    "van-stepper":"../../../../dist/vant-weapp/stepper/index",
+    "van-dialog":"../../../../dist/vant-weapp/dialog/index"
+    }
+}

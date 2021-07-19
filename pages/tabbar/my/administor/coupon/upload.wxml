@@ -1,0 +1,127 @@
+<view class="container">
+  <form  class="eckes-form" bindsubmit="eckesFormSubmit">
+    <view class="section">
+
+			<eckes-input 
+				required
+				label="ptype" 
+				placeholder="请选择优惠券类型" 
+				type="picker"
+				pickerArray="{{pickerArray}}" 
+				bindpicker="pickerChange" 
+			 />
+			<input hidden name="ptype" value="{{ptype}}" />
+
+      <eckes-input 
+				label="总数量" 
+				name="amount"
+				required
+				type="digit"
+				placeholder="请输入总数量"
+			/>
+			
+      <eckes-input 
+				label="满" 
+				name="moneyoff"
+				required
+				type="digit"
+				placeholder="请输入满金额"
+			/>
+
+      <eckes-input 
+				label="减" 
+				name="price"
+				required
+				type="digit"
+				placeholder="请输入减金额"
+			/>
+
+			<eckes-input 
+				label="是否启用" 
+				type="radio"
+				required
+			>
+				<radio-group name="status" bindchange="radioChange">
+					<label><radio value="0" />否</label>
+					<label><radio value="1" checked/>是</label>
+				</radio-group>
+			</eckes-input>
+
+			<eckes-input 
+				label="开始时间 startTime" 
+				name="startTime"
+				required
+				disabled
+				placeholder=""
+				value="{{otherColumns.startTimeTxt}}"
+				bindclick="showCalendar"
+				placeholder="请输入price"
+			/>
+			
+			<eckes-input 
+				label="到期时间 endTime" 
+				name="endTime"
+				required
+				id="endTime"
+				disabled
+				placeholder=""
+				value="{{otherColumns.endTimeTxt}}"
+				bindclick="showCalendar"
+				placeholder="请输入price"
+			/>
+
+			
+      <eckes-input 
+				label="产品id" 
+				name="pid"
+				type="digit"
+				placeholder="请输入pid"
+				value=""
+			/>
+			
+      <eckes-input 
+				label="产品图片" 
+				type="checkbox"
+			>
+				<view class="img-box">
+					<van-uploader 
+					upload-icon="plus" 
+					sizeType="{{['compressed']}}"
+					size="50px" 
+					upload-text="点击上传" 
+					style="display: inline-block;" 
+					file-list="{{ imgs }}" 
+					bind:after-read="img_after" 
+					bind:delete="img_del" 
+					multiple="{{true}}" 
+					preview-image="{{true}}" 
+					max-count="1" 
+					deletable="{{ true }}" />
+				</view>
+			</eckes-input>
+
+    </view>
+
+    <view class="eckes-form-btn">
+			<button 
+				class="eckes-submit" 
+				formType="submit" 
+				disabled="{{submitDisabled}}"
+			>
+      发布优惠券
+			</button>
+		</view>
+	</form>
+	
+	<van-popup position="bottom" show="{{ dateTimeShow }}" bind:close="onTimeClose">
+		<van-datetime-picker
+			type="datetime"
+			bind:cancel="onTimeClose"
+			bind:confirm="onTimeConfirm"
+			formatter="{{ formatter }}"
+			min-date="{{minDate}}"
+			max-date="{{maxDate}}"
+			title="到期时间"
+		/>
+	</van-popup>
+</view>

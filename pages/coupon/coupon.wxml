@@ -1,0 +1,88 @@
+<wxs src="../../wxs/util.wxs" module="__" />
+<view class="couponcenterhtml">
+    <view class="couponcenter">
+        <image class="centerbanner" src="{{imageUrl}}/coupon-top.png"></image>
+        <view class="centerlist"  wx:if="{{list.length>0}}">
+            <view class="centercouponList" wx:for="{{list}}" wx:key="index">
+                <view class="centerbg"></view>
+                <view class="m_coupon_icon">
+                    <image class="couponimg" wx:if="{{item.isUserHas}}" src="{{imageUrl}}/ylq.png">
+                    </image>
+                    <image class="couponimg" wx:elif="{{item.quantity<=0}}" src="{{imageUrl}}/yqg.png">
+                    </image>
+                </view>
+                <view class="centerconter">
+                    
+                    <view class="centerImg">
+                        <view wx:if="{{item.pcover!==null && item.pcover!==''}}">
+                            <image class="proimg"  src="{{host+item.pcover}}"></image>
+                        </view>
+                        <view wx:else>
+                            <image class="proimg" src="{{imageUrl}}/coupon-i-all-3.png"></image>
+                        </view>
+                    </view>
+
+                    <view class="centerInfo {{(item.isUserHas||item.quantity<=0)?'centerinfoGrad':''}}">
+                        <view class="c_amount">
+                            <text wx:if="{{!item.saleoff}}">¥</text>
+                            <text class="c_coup_bold">{{item.price}}</text>
+                            <text wx:if="{{item.saleoff}}">折</text>
+                            <text class="c_coup_des"> 满{{item.moneyoff}}可用</text>
+                        </view>
+                        <view class="c_coup_text" wx:if="{{item.name}}">
+                            {{item.name}}
+                        </view>
+                        <view class="c_coup_text" wx:else>
+                            分类：{{item.ptype==0?'服装':''}}
+                            {{item.ptype==1?'副食':''}}
+                            {{item.ptype==9?'通用':''}}
+                        </view>
+                        <view class="c_coup_text" style="margin-top:0;">
+                            有效期：{{item.endTime}}
+                        </view>
+                    </view>
+                    <view class="centerBtn">
+                        <view class="c_progress" wx:if="{{!item.isUserHas && item.quantity>0}}">
+                            <view class="box" wx:if="{{(item.quantity*2)>=item.amount}}">
+                                <view class="bg"></view>
+                                <view id="rount" class="rount" style="{{__.rundstyle(((1-item.quantity/item.amount)*100))}}"></view>
+                                <view class="bg2"></view>
+                                <view id="rount2" class="rount2" style="display: none"></view>
+                                <view id="num" class="num">
+                                    <text>已抢\n{{__.numberInt((1-item.quantity/item.amount)*100)}}%</text>
+                                </view>
+                            </view>
+                            <view class="box" wx:else>
+                                    <view class="bg"></view>
+                                    <view id="rount" class="rount" style="-webkit-transform:rotate(180deg);display: block"></view>
+                                    <view class="bg2"></view>
+                                    <view id="rount2" class="rount2" style="{{__.rundstyle((1-item.quantity/item.amount)*100)}};display: block"></view>
+                                    <view id="num" class="num">
+                                        <text>已抢\n{{__.numberInt((1-item.quantity/item.amount)*100)}}%</text>
+                                    </view>
+                            </view>
+                        </view>
+                        <view class="c_coup_btn" >
+                            <view class="c_coup_user" wx:if="{{item.isUserHas}}"  bindtap="onclickHomeTap" data-index="{{index}}">去使用</view>
+                            <view class="c_coup_receive" wx:elif="{{item.quantity>0}}" bindtap="onClickTakeCoupon" data-index="{{index}}"
+                            data-item="{{item.id}}">
+                                立即领取</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="more" hidden='{{isShowData}}'>
+                <text>没有更多了～</text>
+            </view>
+        </view>
+        <view class="m_coupon_notab" wx:else>
+            <image class="m_coupon_img_not" src="{{imageUrl}}/ch_yhq.png"></image>
+            <view>暂无优惠券，去首页看看吧～</view>
+            <view class="u_empty_btn" bindtap="onclickHomeTap">去看看</view>
+        </view>
+    </view>
+ 
+    <view class="goCoupon" bindtap="goMyCoupon" style="padding-bottom:{{bottomHeight}}rpx">
+        前往<text class="gotext">我的优惠券</text>
+    </view>
+</view>

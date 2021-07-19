@@ -1,0 +1,120 @@
+<view class="container">
+  <view class="open-tips" style="margin-bottom:20rpx;font-size:26rpx;">
+    开店须知：严禁发布违禁等物品，违反者将永久关停店铺，并追究实名人的相关责任。
+  </view>
+
+  <form wx:if="{{otherForm.status==''}}" class="eckes-form" bindsubmit="eckesFormSubmit">
+    <view class="section">
+      
+      <eckes-input 
+        label="店铺名称" 
+        name="name"
+        required
+        maxlength="{{20}}"
+        placeholder="请输入店铺名称，通过后不可自行修改"
+      />
+      <eckes-input 
+        label="店铺描述" 
+        name="subtitle"
+        maxlength="{{180}}"
+        type='textarea'
+        required
+        placeholder="请输入店铺描述，限制180个字符"
+      />
+      <eckes-input 
+        label="店铺地址" 
+        name="address"
+        maxlength="{{128}}"
+        type='textarea'
+        required
+        placeholder="请输入店铺地址，限制128个字符"
+      />
+      <eckes-input 
+        label="仅支持到店自提" 
+        type="radio"
+        required
+      >
+        <radio-group name="isOnShop">
+          <label><radio value="0" checked="{{true}}"/>否</label>
+          <label><radio value="1"/>是</label>
+        </radio-group>
+      </eckes-input>
+      
+      <eckes-input 
+        label="店铺Logo" 
+        required
+        type="checkbox"
+      >
+        <view class="input-tip">
+          请上传尺寸为正方形的Logo图片
+        </view>
+        <view class="img-box">
+          <van-uploader 
+          id="cover"
+          upload-icon="plus" 
+          sizeType="{{['compressed']}}"
+          size="50px" 
+          upload-text="点击上传" 
+          style="display: inline-block;" 
+          file-list="{{ otherForm.cover }}" 
+          bind:after-read="img_after" 
+          bind:delete="img_del" 
+          multiple="{{false}}" 
+          preview-image="{{true}}" 
+          max-count="1" 
+          deletable="{{ true }}" />
+        </view>
+      </eckes-input>
+
+      
+      <eckes-input 
+        label="店铺banner背景图" 
+        required
+        type="checkbox"
+      >
+        <view class="img-box">
+          <van-uploader 
+          id="banner"
+          upload-icon="plus" 
+          sizeType="{{['compressed']}}"
+          size="50px" 
+          upload-text="点击上传" 
+          style="display: inline-block;" 
+          file-list="{{ otherForm.banner }}" 
+          bind:after-read="img_after" 
+          bind:delete="img_del" 
+          multiple="{{false}}" 
+          preview-image="{{true}}" 
+          max-count="1" 
+          deletable="{{ true }}" />
+        </view>
+      </eckes-input>
+
+      <eckes-input label="店铺分类" type="checkbox" required>
+        <view class="input-tip">等级{{"<"}}20级可选1个，等级{{"<"}}40级可选2个，等级{{">"}}=40级可选3个分类，会员不受等级限制。最多选择3个！</view>
+        <checkbox-group name="type">
+          <label wx:for="{{fieldcolumnsList}}">
+            <checkbox value="{{item.dictcode}}" />{{item.dictname}}</label>
+        </checkbox-group>
+      </eckes-input>
+
+    </view>
+
+    <view class="eckes-form-btn">
+      <button 
+        class="eckes-submit" 
+        formType="submit" 
+        disabled="{{submitDisabled}}"
+      >
+      申请开店
+      </button>
+    </view>
+  </form>
+
+  <view wx:if="{{otherForm.status=='0'}}" style="margin-top:-20rpx;height:100vh;background:#fff;">
+    <van-empty description="开店申请正在审核中~"  />
+  </view>
+  <view wx:if="{{otherForm.status=='2'}}" style="margin-top:-20rpx;height:100vh;background:#fff;">
+    <van-empty description="审核被拒绝，请联系客服~"  />
+  </view>
+</view>

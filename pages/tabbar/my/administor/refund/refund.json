@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "退款申请",
+  "navigationBarBackgroundColor": "#2196F3",
+  "navigationBarTextStyle":"white",
+  "usingComponents": {
+    "van-empty":"../../../../../dist/vant-weapp/empty/index",
+    "van-dialog":"../../../../../dist/vant-weapp/dialog/index",
+    "van-uploader":"../../../../../dist/vant-weapp/uploader/index",
+    "van-icon":"../../../../../dist/vant-weapp/icon/index"
+  }
+}

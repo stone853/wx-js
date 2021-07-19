@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "积分任务",
+  "usingComponents": { 
+    "van-icon":"../../../../dist/vant-weapp/icon/index",
+    "van-divider":"../../../../dist/vant-weapp/divider/index",
+    "van-progress":"../../../../dist/vant-weapp/progress/index"
+  }
+}

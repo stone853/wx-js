@@ -1,0 +1,122 @@
+/* pages/my/my.wxss */
+.container{
+  position: relative;
+  min-height:100vh;
+  background:#efefef;
+  box-sizing: border-box;
+}
+.nav{
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0rpx;
+  z-index: 98;
+  background: #fff;
+}
+.nav-title{
+  position: absolute;
+  bottom: 19rpx;
+  left: calc(50% - 75px);
+  z-index: 98;
+  text-align: center;
+  width: 150px;
+  font-size: 34rpx;
+  color: #020203;
+}
+.nav-btn{
+  position: absolute;
+  bottom: 19rpx;
+  left: 30rpx;
+  box-sizing: border-box;
+  z-index: 99;
+  width: 80px;
+}
+.nav-btn image{
+  height: 40rpx;
+  width: 40rpx;
+  padding-top: 15rpx;
+}
+
+.user-box{
+  padding: 30rpx;
+  color: #c1a893;
+  font-weight: bold;
+  background:#fff;
+}
+.user-card{
+  border-radius: 10rpx;
+  width: 690rpx;
+  height: 330rpx;
+  background-image:linear-gradient(135deg,#26272b,#464646);
+  box-shadow: 0 5rpx 25rpx #aaa;
+  padding: 40rpx;
+  margin-bottom: 50rpx;
+  text-shadow: 0 3px 15rpx #000;
+}
+.user-box .flex{
+  justify-content:space-between;
+}
+.user-name{
+  font-size:36rpx;
+}
+.user-top{
+  height: 220rpx;
+}
+.user-level{
+  font-size: 24rpx;
+  border-radius:33rpx;
+  border: 1px solid #c1a893;
+  padding: 4rpx 8rpx;
+}
+.user-nav{
+  padding-top:40rpx;
+  border-bottom: 1px solid #eee;
+}
+.user-nav view{
+  text-align:center;
+  line-height: 28rpx;
+  width: 162rpx;
+  padding-bottom:20rpx;
+}
+.user-nav .van-icon{
+  font-size: 66rpx;
+}
+.user-title{
+  border-left: 4px solid #0cb8a6;
+  padding-left:20rpx;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+  background-color: #fff;
+}
+.user-subtitle{
+  float: right;
+  color: #ccc;
+  font-size:28rpx;
+}
+.user-subtitle van-icon{
+  vertical-align: middle;
+}
+.user-blank{
+  background:#efefef;
+  width: 750rpx;
+  height:40rpx;
+  left:-30rpx;
+  position: relative;
+  margin-bottom:30rpx
+}
+.user-server{
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.user-server view{
+  width: 330rpx;
+  background:#efefef;
+  border-radius: 15rpx;
+  margin-bottom:30rpx;
+  height:150rpx;
+}
+.user-cell .van-cell{
+  color: #666;
+}

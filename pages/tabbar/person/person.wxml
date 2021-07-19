@@ -1,0 +1,24 @@
+<view class="container" style="padding-bottom:{{saveH/2}}px;">
+  
+  <view class="section section-store">
+    <view class="store" wx:for="{{store}}" >
+      <image class="store-bg" src="{{host+item.bg}}" lazy-load mode="aspectFill"></image>
+      <view class="store-content flex" bindtap="goStore" data-id="{{item.id}}" data-name="{{item.name}}">
+        <image class="store-cover" src="{{host+item.cover}}" lazy-load></image>
+        <view class="store-name">
+          {{item.name}}
+          <view class="store-subtitle">{{item.subtitle}}</view>
+          <view class="store-subtitle store-typeName">{{item.typeName}}</view>
+        </view>
+        <view class="store-btn">
+          <van-icon name="arrow" />
+        </view>
+      </view>
+    </view>
+
+    <view class="tips" bindtap="goPage">
+      <image mode='widthFix' src="{{prefix_img}}/store-bottom.jpg"></image>
+    </view>
+  </view>
+
+</view>

@@ -1,0 +1,227 @@
+<wxs src="../../../../wxs/util.wxs" module="__" />
+<view class="container">
+	<view wx:if="{{list.t5.length>0}}" class="limit limit-time {{showTimeAll?'limit-time-all':'' }}">
+		<!-- 限时任务 -->
+		<image src="/assets/images/newImg/kysp.png" class="limit-bg" mode="widthFix"></image>
+		<view class="limit-title">
+			限时任务
+		</view>
+		<view class="limit-list" wx:for="{{list.t5}}">
+			<view class="limit-item">
+				<view class="limit-item-title">
+					<van-icon name="clock-o" style="vertical-align:top; padding-top: 4rpx;"/>
+					{{item.name}}
+				</view>
+				<view class="limit-reward">
+					<van-icon name="point-gift" style="vertical-align:top; padding-top: 4rpx;" />
+					积分+{{item.rewards}}，经验+{{item.exp}}
+				</view>
+				<view class="limit-item-p">
+					<van-progress
+						percentage="75"
+						pivot-color="#fff"
+						text-color="#000"
+						show-pivot
+						track-color="#ffffff"
+						color="#98ffd4"
+						stroke-width="8"
+					/>
+				</view>
+				<view class="icon-arrow">
+					<van-icon name="arrow" style="vertical-align:top; padding-top: 4rpx;" />
+				</view>
+			</view>
+		</view>
+		<view class="limit-more" bindtap="showMore">
+			<van-icon name="arrow-down" color="#644ceb" size="48rpx"/>
+		</view>
+	</view>
+
+	<view class="tasks _vip {{isVip?'':'tasks-vip'}}">
+		<view class="tasks-title">
+			<view class="t-t-bg"><image mode="widthFix" src="/assets/images/newImg/hdsm.png"></image></view>
+			Vip任务
+			<view style="width:600rpx; margin-left:50rpx;position:absolute;top:22rpx;">
+				<van-divider
+					contentPosition="center"
+					customStyle="color: #84c1ff; border-color: #84c1ff; font-size:24rpx;"
+				>
+					Vip Task
+				</van-divider>
+			</view>
+		</view>
+		<view wx:if="{{isVip}}">
+			<view class="limit-list" wx:for="{{list.t6}}" bindtap="notVip" data-idx="{{index}}">
+				<view class="limit-item" style="opacity:{{item.percent>100?0.3:1}}">
+					<view class="limit-item-title">
+						<van-icon name="clock-o" style="vertical-align:top; padding-top: 4rpx;"/>
+						{{item.name}}
+					</view>
+					<view class="limit-reward">
+						<van-icon name="point-gift" style="vertical-align:top; padding-top: 4rpx;" />
+						积分+{{item.rewards}}
+					</view>
+					<view class="limit-item-p">
+						<van-progress
+							percentage="{{item.percent>100?100:item.percent}}"
+							pivot-color="#ecfcff"
+							text-color="#000"
+							show-pivot
+							track-color="#ecfcff"
+							color="#98ffd4"
+							stroke-width="8"
+						/>
+					</view>
+					<view class="icon-arrow {{item.percent==100?'_done':''}}">
+						<van-icon name="arrow" style="vertical-align:top; padding-top: 4rpx;" />
+					</view>
+				</view>
+					
+				<view class="bg-ywc" wx:if="{{item.percent>100}}">
+					<image src="/assets/images/newImg/ywc.png"></image>
+				</view>
+			</view>
+		</view>
+
+	</view>
+
+	<view class="tasks tasks-daily">
+		<view class="tasks-title">
+			<view class="t-t-bg"><image mode="widthFix" src="/assets/images/newImg/hdsm.png"></image></view>
+			每日任务
+			<view style="width:600rpx; margin-left:50rpx;position:absolute;top:22rpx;">
+				<van-divider
+					contentPosition="center"
+					customStyle="color: #84c1ff; border-color: #84c1ff; font-size:24rpx;"
+				>
+					Daily Task
+				</van-divider>
+			</view>
+		</view>
+
+		<view class="limit-list" wx:for="{{list.t1}}" bindtap="dailyClick" data-idx="{{index}}">
+			<view class="limit-item" style="background:{{item.percent==100?'#1960cc':'#4cbdfd'}};opacity:{{item.percent>100?0.3:1}}">
+				<view class="limit-item-title">
+					<van-icon name="clock-o" style="vertical-align:top; padding-top: 4rpx;"/>
+					{{item.name}}
+				</view>
+				<view class="limit-reward">
+					<van-icon name="point-gift" style="vertical-align:top; padding-top: 4rpx;" />
+					积分+{{item.rewards}}，经验+{{item.exp}}
+				</view>
+				<view class="limit-item-p" >
+					<van-progress
+						percentage="{{item.percent>100?100:item.percent}}"
+						pivot-color="#ecfcff"
+						text-color="#000"
+						show-pivot
+						track-color="#ecfcff"
+						color="#98ffd4"
+						stroke-width="8"
+					/>
+				</view>
+				<view class="icon-arrow {{item.percent==100?'_done':''}}">
+					<van-icon name="arrow" style="vertical-align:top; padding-top: 4rpx;" />
+				</view>
+			</view>
+			<view class="bg-ywc" wx:if="{{item.percent>100}}">
+				<image src="/assets/images/newImg/ywc.png"></image>
+			</view>
+		</view>
+
+	</view>
+
+	
+	<view class="tasks tasks-weekly">
+		<view class="tasks-title">
+			<view class="t-t-bg"><image mode="widthFix" src="/assets/images/newImg/hdsm.png"></image></view>
+			每周任务
+			<view style="width:600rpx; margin-left:50rpx;position:absolute;top:22rpx;">
+				<van-divider
+					contentPosition="center"
+					customStyle="color: #84c1ff; border-color: #84c1ff; font-size:24rpx;"
+				>
+					Weekly Task
+				</van-divider>
+			</view>
+		</view>
+
+		<view class="limit-list" wx:for="{{list.t2}}" bindtap="weekClick" data-idx="{{index}}">
+			<view class="limit-item" style="background:{{item.percent==100?'#007951':'#1fac7d'}};opacity:{{item.percent>100?0.3:1}}">
+				<view class="limit-item-title">
+					<van-icon name="clock-o" style="vertical-align:top; padding-top: 4rpx;"/>
+					{{item.name}}
+				</view>
+				<view class="limit-reward">
+					<van-icon name="point-gift" style="vertical-align:top; padding-top: 4rpx;" />
+					积分+{{item.rewards}}，经验+{{item.exp}}
+				</view>
+				<view class="limit-item-p">
+					<van-progress
+						percentage="{{item.percent>100?100:item.percent}}"
+						pivot-color="#fff"
+						text-color="#000"
+						show-pivot
+						track-color="#ffffff"
+						color="#98ffd4"
+						stroke-width="8"
+					/>
+				</view>
+				<view class="icon-arrow {{item.percent==100?'_done':''}}">
+					<van-icon name="arrow" style="vertical-align:top; padding-top: 4rpx;" />
+				</view>
+			</view>
+			<view class="bg-ywc" wx:if="{{item.percent>100}}">
+				<image src="/assets/images/newImg/ywc.png"></image>
+			</view>
+		</view>
+
+	</view>
+
+	
+	
+	<view class="tasks tasks-resident">
+		<view class="tasks-title">
+			<view class="t-t-bg"><image mode="widthFix" src="/assets/images/newImg/hdsm.png"></image></view>
+			常驻任务
+			<view style="width:600rpx; margin-left:50rpx;position:absolute;top:22rpx;">
+				<van-divider
+					contentPosition="center"
+					customStyle="color: #84c1ff; border-color: #84c1ff; font-size:24rpx;"
+				>
+				  Resident Task
+				</van-divider>
+			</view>
+		</view>
+
+		<view class="limit-list" wx:for="{{list.t4}}" bindtap="residentClick" data-idx="{{index}}">
+			<view class="limit-item" style="background:{{item.percent==100?'#943b00':''}};opacity:{{item.percent>100?0.3:1}}">
+				<view class="limit-item-title">
+					<van-icon name="clock-o" style="vertical-align:top; padding-top: 4rpx;"/>
+					{{item.name}}
+				</view>
+				<view class="limit-reward">
+					<van-icon name="point-gift" style="vertical-align:top; padding-top: 4rpx;" />
+					积分+{{item.rewards}}，经验+{{item.exp}}
+				</view>
+				<view class="limit-item-p">
+					<van-progress
+						percentage="{{item.percent>100?100:item.percent}}"
+						pivot-color="#fff"
+						text-color="#000"
+						show-pivot
+						track-color="#ffffff"
+						color="#ffd4b8"
+						stroke-width="8"
+					/>
+				</view>
+				<view class="icon-arrow {{item.percent==100?'_done':''}}">
+					<van-icon name="arrow" style="vertical-align:top; padding-top: 4rpx;" />
+				</view>
+			</view>
+			<view class="bg-ywc" wx:if="{{item.percent>100}}">
+				<image src="/assets/images/newImg/ywc.png"></image>
+			</view>
+		</view>
+	</view>
+</view>

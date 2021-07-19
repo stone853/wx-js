@@ -1,0 +1,91 @@
+<view class="container">
+
+	<view class="list flex" hidden="{{editFlag}}">
+		<view class="item" wx:for="{{list}}" bindtap="onEdit" data-idx="{{index}}">
+			<image src="{{host+item.cover}}"></image>
+			<view class="name">{{item.name}}</view>
+			<view class="status">状态：{{item.status==0?"关闭":"开启"}}</view>
+		</view>
+	</view>
+
+  <form hidden="{{!editFlag}}" class="eckes-form" bindsubmit="eckesFormSubmit">
+    <view class="section">
+      
+			<input hidden name="id" value="{{form.id}}" />
+      <eckes-input 
+				label="广告标题"
+				name="name"
+				required
+				placeholder="请输入广告标题"
+				value="{{form.name}}"
+			/>
+
+      <eckes-input 
+				label="广告链接" 
+				name="url"
+				required
+				placeholder="请输入url"
+				value="{{form.url}}"
+			/>
+
+      <eckes-input 
+				label="广告排序" 
+				name="sort"
+				required
+				placeholder="请输入sort"
+				value="{{form.sort}}"
+			/>
+			
+
+			<eckes-input 
+				label="是否启用" 
+				type="radio"
+				required
+			>
+				<radio-group name="status" bindchange="radioChange">
+					<label><radio value="0" checked="{{form.status!=1}}"/>否</label>
+					<label><radio value="1" checked="{{form.status==1}}"/>是</label>
+				</radio-group>
+			</eckes-input>
+
+			<!-- 750*300 -->
+      <eckes-input 
+				label="广告图片" 
+				required
+				type="checkbox"
+			>
+				<view class="img-box">
+					<van-uploader 
+					upload-icon="plus" 
+					sizeType="{{['compressed']}}"
+					size="50px" 
+					upload-text="点击上传" 
+					style="display: inline-block;" 
+					file-list="{{ imgs }}" 
+					bind:after-read="img_after" 
+					bind:delete="img_del" 
+					multiple="{{true}}" 
+					preview-image="{{true}}" 
+					max-count="1" 
+					deletable="{{ true }}" />
+				</view>
+			</eckes-input>
+
+    </view>
+
+    <view class="eckes-form-btn">
+			<button 
+				class="eckes-submit" 
+				formType="submit" 
+				disabled="{{submitDisabled}}"
+			>
+      更新
+			</button>
+			<view style="height:20rpx"></view>
+			<button bindtap="onBack" class="eckes-submit" style="background:#fff;color:#999" >
+      返回
+			</button>
+		</view>
+  </form>
+
+</view>

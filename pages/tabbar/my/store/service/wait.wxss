@@ -1,0 +1,73 @@
+.container{
+  padding: 25rpx;
+  min-height: 100vh;
+  background: #f5f5fa;
+}
+.item{
+  height: 158rpx;
+  margin-bottom: 20rpx;
+}
+.main{
+  padding-left: 15rpx;
+  position: relative;
+  flex: 1;
+}
+.psize{
+  font-size: 24rpx;
+  color: #999;
+}
+.price{
+  position: absolute;
+  bottom:0;
+  color: #FB6317;
+  font-weight: bold;
+}
+.pnumber{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.cover,
+.cover image{
+  width: 158rpx;
+  height: 158rpx;
+}
+.cover{
+  box-shadow: #c3c3c3 0 0 5rpx;
+}
+
+.info{
+  font-size: 26rpx;
+}
+.item-box .van-cell__value{
+  flex: unset;
+  padding-left:8rpx;
+  color: #FB6317;
+}
+.prods{
+  padding:10rpx 16rpx;
+}
+.content{
+  padding: 10px 16px;
+}
+.cell-hr{
+  height: 1px;
+  background: #ebedf0;
+  margin: 20rpx 0;
+}
+.prods-box{
+  position: relative;
+  overflow: hidden;
+  height: 180rpx;
+}
+.prods-open{
+  height: auto;
+}
+.prods-btn{
+  position: absolute;
+  z-index: 33;
+  right: 16rpx;
+  bottom: 0;
+  font-size: 48rpx;
+  color: #2196f3;
+}

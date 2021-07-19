@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "eckes-input":"../../../dist/eckes/input/index",
+    "van-popup":"../../../dist/vant-weapp/popup/index",
+    "van-dialog":"../../../dist/vant-weapp/dialog/index",
+    "van-stepper":"../../../dist/vant-weapp/stepper/index",
+    "van-icon":"../../../dist/vant-weapp/icon/index"
+  }
+}

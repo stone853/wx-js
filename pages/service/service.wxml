@@ -1,0 +1,81 @@
+<view class="container">
+
+  <view class="privilege">
+    <view class="e-title">平台客服</view>
+    <view class="e-subtitle">Service Center</view>
+  </view>
+
+  <view class="flex">
+    <button class="flex-item flex-btn" bindcontact="toContact" open-type="contact">
+      <van-icon size="46rpx" class="cell-icon" name="service" color="#36a9fb"/>
+      <view>客服1#</view>
+    </button>
+  </view>
+
+  <view class="cell-hr"></view>
+
+  <view class="privilege">
+    <view class="e-title">更多服务</view>
+    <view class="e-subtitle">Service Center</view>
+  </view>
+  
+  <view class="section-cell">
+
+    <view class="cell-item">
+      <van-icon class="cell-icon" name="service" color="#9579fb"/>
+      <view class="cell-title" style="flex:1">
+        <button class="flex-more-btn flex-btn"show-message-card send-message-img="{{prefix_img}}/wxcard/wxapp.jpg" send-message-title="定制小程序" bindcontact="toContact" open-type="contact">定制小程序</button>
+      </view>
+      
+      <!-- <view class="cell-subtitle"></view>
+      <van-icon class="cell-arrow" name="arrow" bindtap="goPage" data-url="more/more" /> -->
+      <view class="cell-desc">
+        <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="success" scrollable="{{false}}"
+          text="微信用户流量，超级引流入口"
+        />
+        <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="success" scrollable="{{false}}"
+          text="自带微信社交属性，会员裂变百变玩法，加速成交"
+        />
+        <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="success" scrollable="{{false}}"
+          text="高效沉淀用户，为企业提供私域流量"
+        />
+        <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="success" scrollable="{{false}}"
+          text="抢占市场，快速布局"
+        />
+      </view>
+    </view>
+    <view class="cell-hr"></view>
+<!-- 
+    <view class="cell-item">
+      <van-icon class="cell-icon" name="service" color="#9579fb"/>
+      <view class="cell-title" style="flex:1">
+        <button class="flex-more-btn flex-btn"show-message-card send-message-img="{{prefix_img}}/wxcard/wxapp.jpg" send-message-title="定制小程序" bindcontact="toContact" open-type="contact">定制企业官网、个人博客</button>
+      </view>
+    </view>
+      
+    <view class="cell-hr"></view>
+
+    <view class="cell-item">
+      <van-icon class="cell-icon" name="service" color="#9579fb"/>
+      <view class="cell-title" style="flex:1">
+        <button class="flex-more-btn flex-btn"show-message-card send-message-img="{{prefix_img}}/wxcard/wxapp.jpg" send-message-title="定制小程序" bindcontact="toContact" open-type="contact">定制管理平台</button>
+      </view>
+      
+      <view class="cell-desc">
+        <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="success" scrollable="{{false}}"
+          text="产品、用户、数据全周期录入及维护"
+        />
+        <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="success" scrollable="{{false}}"
+          text="数据上云，永不丢失"
+        />
+        <van-notice-bar color="#1989fa" background="#ecf9ff" left-icon="success" scrollable="{{false}}"
+          text="数据统计，报表一目了然"
+        />
+      </view>
+    </view>
+    <view class="cell-hr"></view> -->
+
+
+  </view>
+
+</view>

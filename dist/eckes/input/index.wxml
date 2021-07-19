@@ -1,0 +1,72 @@
+<view class="eckes-input {{noborder?'':'eckes-border'}} {{required?'eckes-required':''}} {{nolabel?'eckes-nolabel':''}}">
+    <view class="eckes-input-box">
+
+        <!-- label -->
+        <view class="eckes-input-label" wx:if="{{!nolabel}}">
+            <view wx:if="{{ label }}" class="">
+                <text>{{ label }}</text>
+            </view>
+            <slot wx:else name="label"></slot>
+        </view>
+
+        <!-- input -->
+        <view class="eckes-input-content">
+            <block wx:if="{{type=='textarea'}}">
+                <textarea 
+                    class="eckes-input-item"
+                    placeholder="{{placeholder}}" 
+                    name="{{name}}"
+                    focus="{{ focus }}" 
+                    value="{{ initValue }}"
+                    placeholder-class="placeholder"
+                    disabled="{{ disabled || readonly }}"
+                    maxlength="{{ maxlength }}"
+                    bindinput="onInput"
+                    bindblur="onBlur"
+                />
+            </block>
+            <block wx:elif="{{type=='picker'}}">
+                <picker 
+                    mode="multiSelector" 
+					disabled="{{ disabled || readonly }}"
+                    range-key="{{pickerColumn}}" 
+                    bindchange="bindPickerChange" 
+                    bindcolumnchange="bindPickerColumnChange"
+                    value="{{pickerIndex}}" 
+                    range="{{pickerArray}}"
+                >
+                    <view class="picker">
+                        <input hidden name="{{name}}" value="{{ initValue }}"/>
+                        <input disabled type="text" class="eckes-input-item" value="{{initValue}}" placeholder-class="placeholder" placeholder="{{placeholder}}"/>
+                        <view class="picker-icon"></view>
+                    </view>
+                </picker>
+            </block>
+            <block wx:elif="{{type=='checkbox' || type=='radio'}}">
+                <slot></slot>
+            </block>
+            <block wx:else>
+                <input 
+                    class="eckes-input-item"
+                    type="{{type}}"
+                    name="{{name}}"
+                    password="{{!!password}}"
+                    placeholder="{{placeholder}}"
+                    placeholder-class="placeholder"
+                    focus="{{ focus }}" 
+                    value="{{ initValue }}"
+                    disabled="{{ disabled || readonly }}"
+                    maxlength="{{ maxlength }}"
+                    bindinput="onInput"
+                    bindblur="onBlur"
+                    bindtap="onTap"
+                />
+            </block>
+        </view>
+    </view>
+
+    <view class="eckes-input-button" wx:if="{{useButtonSlot}}">
+        <slot name="button"></slot>
+    </view>
+
+</view>

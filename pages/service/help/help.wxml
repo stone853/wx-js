@@ -1,0 +1,71 @@
+<view class="container">
+  <view class="explain">
+    
+    <view class="e-title">推荐礼</view>
+      <view class="e-subtitle">Recommend Courteous</view>
+      <view class="e-desc">
+        <view class="e-desc-m">推荐人获得1元优惠券一张</view>
+      </view>
+
+      <view class="e-desc">
+        <view class="e-desc-m">自己获得188积分</view>
+      </view>
+
+      <!-- <view class="e-desc">
+        <view class="e-desc-m">推荐人消费，自己得积分</view>
+      </view> -->
+
+      <view class="e-desc">
+        <view class="e-desc-m">累计推荐专享更多好礼，累计推荐不过期</view>
+      </view>
+
+  </view>
+
+  <view class="privilege">
+    <view class="e-title">累计推荐特权预览</view>
+    <view class="e-subtitle">Level Privileges</view>
+
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">尽情期待</view>
+      </view>
+      <view class="p-s-bottom">
+        累计推荐：2人
+        <view class="p-s-b-r"></view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">尽情期待</view>
+      </view>
+      <view class="p-s-bottom">
+        累计推荐：8人
+        <view class="p-s-b-r"></view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">尽情期待</view>
+      </view>
+      <view class="p-s-bottom">
+        累计推荐：28人
+        <view class="p-s-b-r"></view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">尽情期待</view>
+      </view>
+      <view class="p-s-bottom">
+        累计推荐：68人
+        <view class="p-s-b-r"></view>
+      </view>
+    </view>
+
+  </view>
+
+</view>

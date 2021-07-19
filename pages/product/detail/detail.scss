@@ -1,0 +1,243 @@
+.container{
+  background: #fff;
+  padding-bottom: 95rpx;
+}
+swiper{
+  height: 750rpx;
+  image{
+    height: 750rpx;
+    width: 750rpx;
+  }
+  .wx-swiper-dots.wx-swiper-dots-horizontal{
+    bottom: 50rpx;
+    padding-left:40rpx;
+    width: 100%;
+    text-align:left;
+  }
+  .wx-swiper-dot{
+    //background:blue;
+  }
+  .wx-swiper-dot-active{
+    background: rgb(255, 91, 91);
+  }
+}
+.section-content{
+  background: #fff;
+  border-radius: 45rpx 45rpx 0 0;
+  position: relative;
+  top: -35rpx;
+  z-index: 333;
+  padding: 45rpx;
+  .i-title{
+    font-weight: bold;
+    font-size: 34rpx;
+  }
+  .i-subtitle{
+    color: #999;
+  }
+  .space-h{
+    height: 15rpx;
+  }
+  .price-box{
+    position: relative;
+    align-items: baseline;
+  }
+  .i-code{
+    color: #999;
+    font-size:26rpx;
+  }
+  .i-sales{
+    color: #999;
+    font-size: 26rpx;
+    text-align:right;
+    width: 220rpx;
+  }
+  .i-price{
+    flex:1;
+    font-weight: bold;
+    font-size: 42rpx;
+    color:#ff5b5b;
+    text{
+      color: #999;
+      text-decoration:line-through;
+      font-size: 26rpx;
+    }
+  }
+  .i-subtitle{
+    margin-bottom:45rpx;
+  }
+  .i-c-title{
+    font-size: 28rpx;
+    font-weight: bold;
+    margin-bottom: 25rpx;
+    padding-left:22rpx;
+    border-left:3px solid #ff5b5b;
+  }
+  .i-size{
+    flex-wrap: wrap;
+    margin-bottom: 15rpx;
+  }
+  .i-size-item{
+    background: rgb(231, 231, 231);
+    border-radius: 10rpx;
+    padding:0 25rpx;
+    line-height: 55rpx;
+    margin-right: 15rpx;
+    font-size: 26rpx;
+    margin-bottom: 15rpx;
+    position: relative;
+  }
+  .size-action{
+    background: #ff5b5b;
+    color: #fff;
+    &::before{
+      content:"√";
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      color: #fff;
+      line-height: unset;
+    }
+  }
+}
+.addCart{
+  padding: 0 20rpx;
+  height: 59rpx;
+  line-height:58rpx;
+  color: #fff;
+  background:#2C6CDE;
+  border-radius: 15rpx;
+  font-weight: bold;
+  margin-left:20rpx;
+}
+.section-action{
+  z-index: 337;
+  background: #fff;
+  width: 750rpx;
+  position: fixed;
+  bottom: 0;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+  justify-content: space-between;
+  box-shadow: rgb(241, 241, 241) 0 0 15rpx;
+  .add-cart{
+    width: 271rpx;
+    text-align: center;
+    height: 65rpx;
+    line-height:64rpx;
+    color: #fff;
+    background:#ff5b5b;
+    border-radius: 15rpx;
+    font-size: 32rpx;
+    font-weight: bold;
+    margin: 0 auto;
+  }
+  .cart-blue{
+    background:#2196F3;
+  }
+  .fav{
+    padding-left:28rpx;
+    padding-top: 6rpx;
+    width: 140rpx;
+    text-align:center;
+    line-height: 64rpx;
+  }
+}
+.eckes-box{
+  padding: 15rpx;
+  border: 1px solid #eee;
+  margin-bottom: 45rpx;
+
+}
+.input-tip{
+  color: #2196F3;
+  font-size: 24rpx;
+  margin-bottom: 12rpx;
+}
+.section{
+  padding:0 40rpx;
+}
+.eckes-submit{
+  background: #ff5b5b;
+  color: #fff;
+}
+
+.ck-flex {
+	margin-bottom:15rpx;
+  .ck-icon {
+    width: 36rpx;
+    height: 36rpx;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 32rpx;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid #AEAEAE;
+  }
+
+  .ck-icon.ck-action {
+    border-color: #0EABB8;
+    background: #0EABB8;
+  }
+  .ck-title {
+    vertical-align: top;
+    padding-left: 20rpx;
+    width: 554rpx;
+  }
+  .ck-title-txt {
+    margin-top: -4rpx;
+    font-size: 28rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .ck-desc {
+    color: #557494;
+    font-size: 24rpx;
+    display: inline;
+  }
+}
+.input-tip-btn{
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 15rpx;
+  text{
+    color: #ff5b5b;
+  }
+}
+.size-tips{
+  color: #ff5b5b;
+  padding-bottom:25rpx;
+  font-weight: bold;
+}
+.totalprice{
+  padding-bottom: 25rpx;
+}
+
+
+.shop-cart{
+  position: fixed;
+  right: 25rpx;
+  bottom: 124rpx;
+  width: 108rpx;
+  height: 108rpx;
+  z-index: 333;
+}
+.shop-cart image{
+  width:100%;
+  height: 100%;
+}
+.shop-cart view{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  right: 9rpx;
+  top:4rpx;
+  color:#fff;
+  font-size:24rpx;
+  line-height: 31rpx;
+  text-align: center;
+  background:#FC1F2E;
+  border:2rpx solid #FC1F2E;
+  border-radius:50%;
+}

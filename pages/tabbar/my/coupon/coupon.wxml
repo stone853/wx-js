@@ -1,0 +1,77 @@
+<wxs src="../../../../wxs/util.wxs" module="__" />
+<view class="container">
+	<eckes-scroll list="{{navs}}" bindtotap="changeNav"></eckes-scroll>
+
+	<view class="nav-items">
+		<block wx:for="{{list}}">
+			<view class="active_item" wx:if="{{item.length>0 && active==index }}">
+					<view class="m_coupon_sec">
+							<view class="m_coupon_lst">
+									<view class="m_coupon_lst_li" wx:for="{{item}}" wx:for-index="cidx" wx:for-item="coupon" wx:key="cidx">
+											<view class="m_coupon_icon" wx:if="{{active==1}}">
+													<image class="couponimg" src="{{imageUrl}}/icon_user.png"></image>
+											</view>
+											<view>
+													<view wx:if="{{active==0}}">
+															<!-- <image class="m_coupon_bg" wx:if="{{coupon.activityLevel == 'S'  }}"
+																	src="{{imageUrl}}/counp_bg_true.png"></image> -->
+															<image class="m_coupon_bg" src="{{imageUrl}}/counp_bg.png"></image>
+													</view>
+													<view wx:else>
+															<image class="m_coupon_bg" src="{{imageUrl}}/counp_bg_false_p.png">
+															</image>
+													</view>
+											</view>
+											<view>
+												<!-- 即将过期 -->
+												<view class="m_coupon_icon newcoup" wx:if="{{coupon.tag=='即将过期'}}">
+														<image class="couponimg" src="{{imageUrl}}/tag_old.png"></image>
+												</view>
+											</view>
+											<view class="m_coupon_box">
+													<view class="m_coupon_hd">
+															<view class="m_coup_amount">
+																	<view class="u_coup_sbol">
+																			<view class="f_rmb">￥</view>
+																	</view>
+																	<view class="u_coup_num">{{coupon.price}}</view>
+															</view>
+															<view class="u_coup_des">
+																	满 {{coupon.moneyoff}} 可用</view>
+													</view>
+													<view class="m_coupon_bd">
+															<!--  -->
+															<view class="u_coup_tname">
+																	<view class="u_coupon_float">
+																		{{coupon.ptype==0?'服装':''}}
+																		{{coupon.ptype==1?'副食':''}}
+																		{{coupon.ptype==9?'通用':''}}
+																		券
+																	</view>
+																	<view class="u_line_clamp">
+																			<view wx:if="{{coupon.name}}">{{coupon.name}}</view>
+																	</view>
+															</view>
+															<view class="u_coup_date_range">
+																	<text>有效期至：\n{{coupon.endTime}}</text>
+															</view>
+													</view>
+													<view class="m_coupon_ft" wx:if="{{active==0}}">
+															<view class="u_btn u_btn_t"	bindtap="onClickToJoin" data-item="{{item.ptype}}">去使用</view>
+													</view>
+											</view>
+									</view>
+							</view>
+					</view>
+			</view>
+			<view class="m_coupon_notab" wx:if="{{item.length==0 && active==index}}">
+					<image class="m_coupon_img_not" src="{{imageUrl}}/ch_yhq.png"></image>
+					<view>暂无优惠券～</view>
+					<view class="u_empty_btn" wx:if="{{index==0}}" bindtap="goPage">去领券中心</view>
+			</view>
+		</block>
+	</view>
+	<view class="m_coupon_fixed" bindtap="goPage">
+		前往 <text style="font-weight:bold; color:#2C6CDE;">领券中心</text>
+	</view>
+</view>

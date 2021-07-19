@@ -1,0 +1,29 @@
+<view class="container">
+
+  <view class="explain explain-e">
+    <view class="e-title">第一辑：新的旅程</view>
+    <view class="e-subtitle">JOURNEY</view>
+    <view class="e-desc">
+      <view class="e-desc-m">每点亮一个成就，均可领取成就礼包</view>
+      <view class="e-desc-sub">冲冲冲！完成专辑所有成就，兑换大奖吧</view>
+    </view>
+  </view>
+
+
+  <view class=" icon-box">
+    <image mode="widthFix" class="i-bg i-bg1" src="{{host+prefix_img+'/achieve/bg1.jpg'}}"></image>
+
+    <view class="icon {{item.status==1?'has gift1':''}} {{item.status==2?'has complete':''}}" wx:for="{{all}}">
+      <image class="achieve-icon" src="{{host+prefix_img+'/achieve/icon.png'}}"></image>
+      <view class="icon-title">{{item.title}}</view>
+      <view class="icon-subtitle">{{item.subtitle}}</view>
+
+      <image data-id="{{item.id}}" data-idx="{{index}}" bindtap="_complete" class="gift" src="{{host+prefix_img+'/achieve/gift.png'}}"></image>
+      <image mode="widthFix" class="gift_2" src="/assets/images/newImg/ywc.png"></image>
+
+    </view>
+
+    
+    <image mode="widthFix" class="i-bg i-bg3" src="{{host+prefix_img+'/achieve/bg3.jpg'}}"></image>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "客服中心",
+  "navigationBarBackgroundColor": "#f5f5fa",
+  "usingComponents": {
+    "van-icon":"../../../../dist/vant-weapp/icon/index",
+    "van-dialog":"../../../../dist/vant-weapp/dialog/index"
+  }
+}

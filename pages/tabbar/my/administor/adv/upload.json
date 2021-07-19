@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "首页大广告维护",
+  "navigationBarBackgroundColor": "#2196F3",
+  "navigationBarTextStyle":"white",
+  "usingComponents": {
+    "eckes-input":"../../../../../dist/eckes/input/index",
+    "van-uploader":"../../../../../dist/vant-weapp/uploader/index"
+  }
+}

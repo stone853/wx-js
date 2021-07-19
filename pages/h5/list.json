@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "游戏中心",
+  "usingComponents": {
+    "van-card":"../../dist/vant-weapp/card/index",
+    "van-divider":"../../dist/vant-weapp/divider/index"
+  }
+}

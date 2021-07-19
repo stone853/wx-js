@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "发布优惠券",
+  "navigationBarBackgroundColor": "#ec4c5f",
+  "navigationBarTextStyle":"white",
+  "disableScroll":false,
+  "usingComponents": {
+  }
+}

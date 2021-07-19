@@ -1,0 +1,95 @@
+<view class="container">
+
+  <form  class="eckes-form" bindsubmit="eckesFormSubmit">
+    <view class="section">
+      
+      <eckes-input 
+				label="产品名称 name" 
+				name="name"
+				required
+				placeholder="请输入name"
+			/>
+      <eckes-input 
+				label="产品副标题 subhead" 
+				name="subhead"
+				required
+				placeholder="请输入subhead"
+			/>
+			
+			<eckes-input 
+				label="产品类型 type" 
+				required 
+				placeholder="请选择产品type类型" 
+				type="picker"
+				pickerArray="{{pickerArray}}" 
+				pickerColumn="note" 
+				bindpicker="pickerChange" 
+			 />
+			<input hidden name="type" value="{{typeCode}}" />
+
+      <eckes-input 
+				label="产品价格 price" 
+				name="price"
+				required
+				type="digit"
+				placeholder="请输入price"
+			/>
+
+			<eckes-input 
+				label="是否促销" 
+				type="radio"
+				required
+			>
+				<radio-group name="isDiscount" bindchange="radioChange">
+					<label><radio value="0" checked/>否</label>
+					<label><radio value="1"/>是</label>
+				</radio-group>
+			</eckes-input>
+
+			<eckes-input 
+				wx:if="{{radioNode==1}}"
+				label="促销价格 priceDiscount" 
+				name="priceDiscount"
+				type="digit"
+				required
+				placeholder="请输入priceDiscount"
+			/>
+			
+      <eckes-input 
+				label="产品图片 imgUrl" 
+				required
+				type="checkbox"
+			>
+				<view class="img-box">
+					<van-uploader 
+					upload-icon="plus" 
+					sizeType="{{['compressed']}}"
+					size="50px" 
+					upload-text="点击上传" 
+					style="display: inline-block;" 
+					file-list="{{ imgs }}" 
+					bind:after-read="img_after" 
+					bind:delete="img_del" 
+					multiple="{{true}}" 
+					preview-image="{{true}}" 
+					max-count="5" 
+					deletable="{{ true }}" />
+				</view>
+			</eckes-input>
+
+			<eckes-input label="产品详情 detail" type='textarea' name="detail" placeholder="请填写您的产品detail" maxlength="500" />
+
+    </view>
+
+    <view class="eckes-form-btn">
+			<button 
+				class="eckes-submit" 
+				formType="submit" 
+				disabled="{{submitDisabled}}"
+			>
+      发布产品
+			</button>
+		</view>
+  </form>
+
+</view>

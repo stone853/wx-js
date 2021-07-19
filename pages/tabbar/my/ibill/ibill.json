@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "我的积分账单",
+  "usingComponents": { 
+    "eckes-input":"../../../../dist/eckes/input/index",
+    "van-icon":"../../../../dist/vant-weapp/icon/index",
+    "van-calendar": "../../../../dist/vant-weapp/calendar/index",
+    "van-swipe-cell":"../../../../dist/vant-weapp/swipe-cell/index",
+    "van-empty": "../../../../dist/vant-weapp/empty/index",
+    "van-cell":"../../../../dist/vant-weapp/cell/index"
+    }
+}

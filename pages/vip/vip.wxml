@@ -1,0 +1,161 @@
+<view class="container">
+
+  <view wx:if="{{!isVip}}">
+    <view class="explain">
+      <image bindtap="toPay" class="card-month" src="{{prefix_img}}/vip-month.jpg" mode="widthFix"></image>
+
+      <view class="hr"></view>
+
+      <view class="e-title">满月祝福</view>
+      <view class="e-subtitle">Member Rank Identification</view>
+      <view class="e-desc">
+        <view class="e-desc-m">持续30天的积分祝福，每日可领取188积分</view>
+      </view>
+
+      <view class="e-desc">
+        <view class="e-desc-m">立即获得一张2元优惠券</view>
+      </view>
+
+      <view class="e-desc">
+        <view class="e-desc-m">积分永久有效</view>
+      </view>
+
+      <view class="e-desc">
+        <view class="e-desc-m">vip商品专享优惠</view>
+      </view>
+      
+      <view class="e-desc">
+        <view class="e-desc-m">更多优惠紧张筹办中...</view>
+      </view>
+
+    </view>
+  </view>
+  <view wx:else>
+    <view class="card">
+      <view data-url="help/help" class="card-tip" bindtap="goPage"><van-icon name="point-gift"/> 推荐礼</view>
+      <view class="card-box">
+        <view class="vip-level">满月祝福</view>
+        <view class="vip-time">到期时间：{{levelTime}}</view>
+        <view class="vip-no">推荐码：CVT00{{id}}</view>
+        <view class="vip-up" bindtap="toPay">续费</view>
+        <view class="vip">VIP</view>
+        <view class="vip-question"><van-icon name="question" /></view>
+      </view>
+    </view>
+<!-- 
+    <view class="icons">
+      <view>
+        <view class="icons-i"><van-icon name="goods-collect" /></view>
+        <view class="icons-t">商家折扣</view>
+      </view>
+
+      
+      <view class="icons-b">
+        <view class="icons-i"><van-icon name="coupon" /></view>
+        <view class="icons-t">优惠券</view>
+      </view>
+
+      
+      <view>
+        <view class="icons-i"><van-icon name="point-gift" /></view>
+        <view class="icons-t">每日积分</view>
+      </view>
+
+      
+      <view class="icons-b">
+        <view class="icons-i"><van-icon name="gift-card" /></view>
+        <view class="icons-t">节日礼物</view>
+      </view>
+
+      
+      <view>
+        <view class="icons-i"><van-icon name="service" /></view>
+        <view class="icons-t">专属客服</view>
+      </view>
+    </view> -->
+
+    
+
+  <view class="privilege">
+    <view class="e-title">祝福等级特权预览</view>
+    <view class="e-subtitle">Level Privileges</view>
+
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">专属客服：08:00~22:00</view>
+        <view class="p-s-t-i">会员商品折扣：最高享9.5折</view>
+      </view>
+      <view class="p-s-bottom">
+        持续祝福：45天
+        <view class="p-s-b-r">满月会员I</view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">专属客服：08:00~22:00</view>
+        <view class="p-s-t-i">会员折扣：最高享9折</view>
+        <view class="p-s-t-i">节日好礼：1次/年领取会员节日豪礼</view>
+        <view class="p-s-t-i">等级活动：定期专享等级活动</view>
+        <view class="p-s-t-i">优惠好券：限时领取等级好券</view>
+      </view>
+      <view class="p-s-bottom">
+        持续祝福：90天
+        <view class="p-s-b-r">满月会员II</view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">专属客服：08:00~22:00</view>
+        <view class="p-s-t-i">会员折扣：最高享8折</view>
+        <view class="p-s-t-i">节日好礼：1次/年领取会员节日豪礼</view>
+        <view class="p-s-t-i">等级活动：定期专享等级活动</view>
+        <view class="p-s-t-i">优惠好券：限时领取等级好券</view>
+        <view class="p-s-t-i">下单返利：下单成功额外积分</view>
+      </view>
+      <view class="p-s-bottom">
+        持续祝福：150天
+        <view class="p-s-b-r">满月会员III</view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">专属客服：08:00~22:00</view>
+        <view class="p-s-t-i">会员折扣：最高享7折</view>
+        <view class="p-s-t-i">节日好礼：1次/年领取会员节日豪礼</view>
+        <view class="p-s-t-i">等级活动：定期专享等级活动</view>
+        <view class="p-s-t-i">优惠好券：限时领取等级好券</view>
+        <view class="p-s-t-i">下单返利：下单成功额外积分</view>
+      </view>
+      <view class="p-s-bottom">
+        持续祝福：300天
+        <view class="p-s-b-r">满月会员IV</view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="privilege-star">
+      <view class="p-s-top">
+        <view class="p-s-t-i">专属客服：08:00~22:00</view>
+        <view class="p-s-t-i">会员折扣：最高享6折</view>
+        <view class="p-s-t-i">节日好礼：2次/年领取会员节日豪礼</view>
+        <view class="p-s-t-i">等级活动：定期专享等级活动</view>
+        <view class="p-s-t-i">优惠好券：限时领取等级好券</view>
+        <view class="p-s-t-i">下单返利：下单成功额外积分</view>
+        <view class="p-s-t-i">惊喜礼包：每季度赠送各种惊喜礼包</view>
+        <view class="p-s-t-i">充值折扣：充值积分专享折扣</view>
+      </view>
+      <view class="p-s-bottom">
+        持续祝福：480天
+        <view class="p-s-b-r">满月会员V</view>
+      </view>
+    </view>
+
+
+  </view>
+
+  </view>
+
+</view>

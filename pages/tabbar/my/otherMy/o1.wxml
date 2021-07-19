@@ -1,0 +1,103 @@
+<view class="container" style="padding-bottom:{{saveH+120}}rpx; padding-top:{{navH}}px;">
+
+<!-- navbar -->
+<view class="nav" style="height:{{navH}}px">
+  <view bindtap="clickSetting" class="nav-btn" style="height: {{headerBtnPosi.height}}px;">
+    <!-- 11 -->
+  </view>
+  <view class="nav-title" style="line-height: {{headerBtnPosi.height}}px;">用户中心</view>
+</view>
+
+<!-- user信息 -->
+<view class="user-box">
+  
+  <view class="user-card">
+    <view class="user-top flex">
+      <view class="user-left">
+        <view class="user-name">用户中心</view>
+        <view class="user-tel">188 **** 8888</view>
+      </view>
+      <view class="user-right">
+        <view class="user-level">超级钻卡</view>
+      </view>
+    </view>
+
+    <view class="user-bottom flex">
+      <view class="user-left">
+        <view class="user-code">No. 0001 0000 0001</view>
+      </view>
+      <view class="user-right">
+        2021.01.25
+      </view>
+    </view>
+  </view>
+
+  <view class="user-blank"></view>
+
+  <view class="user-title">
+    我的权益
+  </view>
+
+  <view class="user-nav flex">
+    <view style="color:#fdac30">
+      <van-icon name="shopping-cart-o" />
+      <view>购物车</view>
+    </view>
+    <view style="color:#fd783f">
+      <van-icon name="coupon-o" />
+      <view>订单</view>
+    </view>
+    <view style="color:#f8433c">
+      <van-icon name="star"/>
+      <view>收藏</view>
+    </view>
+    <view style="color:#776af6">
+      <van-icon name="gift-o" />
+      <view>礼包</view>
+    </view>
+  </view>
+  <view class="user-cell">
+    <van-cell 
+      title="上传商品" 
+      is-link 
+      icon="add-square"
+      link-type="navigateTo"
+      url="/pages/tabbar/my/administor/upload/upload"
+    />
+    <van-cell title="常用地址" is-link icon="location"
+      link-type="navigateTo"
+      url="/pages/tabbar/my/address/address"
+    />
+    <van-cell title="设置" is-link icon="setting"/>
+  </view>
+  
+  <view class="user-blank"></view>
+  
+  <view class="user-title">
+    任务大厅
+    <view class="user-subtitle">更多</view>
+  </view>
+
+  <view class="user-server flex">
+    <view></view>
+    <view></view>
+    <view></view>
+    <view></view>
+  </view>
+  <view class="user-blank"></view>
+  
+  <view class="user-title">
+    客服中心
+    <view class="user-subtitle">遇事不决，量子力学</view>
+  </view>
+
+  <view class="user-server flex">
+    <view></view>
+    <view></view>
+  </view>
+
+  <view class="user-blank"></view>
+
+</view>
+
+</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "捌柒陆叁",
+  "usingComponents": {
+    "van-icon":"../../../dist/vant-weapp/icon/index"
+  }
+}

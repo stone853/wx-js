@@ -1,0 +1,38 @@
+<wxs module="role">
+var badge = function(total){
+  var arr = []; 
+  arr.length=+total;
+  return arr;
+};
+module.exports = {
+	badge:badge
+}
+</wxs>
+<view class="container">
+
+  <view class="explain explain-e">
+    <view class="e-title">点亮徽章兑好礼</view>
+    <view class="e-subtitle">Information Explain</view>
+    <view class="e-desc">
+      <view class="e-desc-m">每点亮一套徽章，均可领取徽章礼包</view>
+      <view class="e-desc-sub">通过访问商品、完成订单、成就、任务等渠道有几率获取不同徽章</view>
+    </view>
+
+  </view>
+
+
+
+  <view class="explain" wx:for="{{all}}" >
+    <view class="e-title">{{item.title}}</view>
+    <view class="e-subtitle">{{item.url}}</view>
+    <view class="flex e-flex">
+      <view class="e-desc" wx:for-item="child" wx:for-index="idx" wx:for="{{role.badge(item.total)}}">
+        <image mode="widthFix" src="{{host+prefix_img+'/badge/'+item.url+'/'+(idx+1)+'.png'}}"></image>
+      </view>
+    </view>
+
+  </view>
+
+
+
+</view>

@@ -1,0 +1,168 @@
+<wxs src="../../../wxs/util.wxs" module="__" />
+<view class="order_detail">
+    <view class="message" wx:if="{{orderStatusStr === '待支付'}}">
+        超时未支付的订单将被取消，请尽快完成支付~
+    </view>
+    <view class="order_info order_status{{item.status}}">
+        <image src="/assets/images/mine/taocanshezhi.png"></image>
+        {{item.status=='0'?"待支付":""}}
+        {{item.status=='1'?"已支付":""}}
+        {{item.status=='2'?"已完成":""}}
+        {{item.status=='9'?"已取消":""}}
+    </view>
+    <view class="content"  style="padding-bottom:100rpx;">
+        <view class="m_order_detail">
+            <view class="order_goos_list" >
+                <view class="m_order_good_info" data-storeProdNo="{{item.pid}}" bindtap="onClickToDetailPage">
+                    <view class="m_order_good_image">
+                        <image src="{{host+item.pcover}}" />
+                    </view>
+                    <view class="m_u_order_good_info">
+                        <view class="m_u_order_good_prodname">
+                                {{item.pname}}
+                        </view>
+                        <view class="m_u_order_good_prodname">
+                                <!-- item.subtitle -->
+                        </view>
+                    </view>
+                    <view class="m_u_order_good_price">
+                        <view class="price">
+                            ¥{{__.coupontoFixed(item.pprice)}}
+                        </view>
+                        <view class="number">
+                            X{{item.pnumber}}
+                        </view>
+                    </view>
+                </view>
+                <view class="m_order_price">
+                    <view>
+                        <view>商品总金额</view><view>¥{{__.coupontoFixed(item.pprice*item.pnumber)}}</view>
+                    </view>
+                    <view wx:if="{{item.vipSort>99}}">
+                        <view>平台优惠</view><view style="color:#FF3237">-¥{{__.coupontoFixed(item.vipSort/100)}}</view>
+                    </view>
+                    <view wx:if="{{priceDetails.couponAmount !== '0.00'}}">
+                        <view>优惠券 <van-icon style="vertical-align:middle;" name="info-o" color="#FB6317" size="32rpx"/></view><view style="color:#FF3237">-¥{{m1.coupontoFixed(priceDetails.couponAmount,2)}}</view>
+                    </view>
+                    <view wx:if="{{priceDetails.postage !== '0.00'}}">
+                        <view>运费</view><view style="color:#FF3237">+¥{{m1.coupontoFixed(priceDetails.postage,2)}}</view>
+                    </view>
+                    <view class="appRealPayPrice">
+                        <view>¥{{m1.coupontoFixed(appRealPayPrice,2)}}</view><view>实付</view>
+                    </view>
+                    <view wx:if="{{refundSumPrice}}" class="refundSumPrice">已退款￥{{m1.coupontoFixed(refundSumPrice,2)}}</view>
+                    <view wx:if="{{orderStatusStr=='已完成'}}" bindtap="onClickAfter"
+					 data-paytype="{{payType}}" data-orderid="{{orderId}}" data-customservicetel="{{linkTel}}">
+                        <view class="onClickAfter">申请售后</view>
+                    </view>
+                </view>
+            </view>
+            <view class="order_address">
+                    <view class="m_order_title">配送信息</view>
+                    <view class="m_order_address">
+                        <view>
+                            <view>客户名称</view><view>{{linkMan}}</view>
+                        </view>
+                        <view>
+                            <view>联系电话</view><view>{{linkManTel}}</view>
+                        </view>
+                        <view>
+                            <view>收货地址</view><view>{{linkAddress}}</view>
+                        </view>
+                </view>
+            </view>
+            <view class="m_order_info">
+                <view class="m_order_title">订单信息</view>
+                <view class="m_order_address">
+                    <view>
+                        <view>订单号</view><view>{{orderCode}}</view>
+                    </view>
+                    <view>
+                        <view>下单时间</view><view>{{createAt}}</view>
+                    </view>
+                    <view>
+                        <view>支付方式</view><view>{{payChannel}}</view>
+                    </view>
+                    <view>
+                        <view>下单渠道</view><view>{{orderSourceStr}}</view>
+                    </view>
+                    <view>
+                        <view>发票类型</view><view>{{invoiceType}}</view>
+                    </view>
+                    <view wx:if="{{invoiceCompany}}">
+                        <view>发票抬头</view><view>{{invoiceCompany}}</view>
+                    </view>
+                    <view wx:if="{{invoiceNo}}">
+                        <view>纳税人识别号</view><view>{{invoiceNo}}</view>
+                    </view>
+                    <view wx:if="{{invoiceTel}}">
+                        <view>注册电话</view><view>{{invoiceTel}}</view>
+                    </view>
+                    <view wx:if="{{invoiceAddress}}">
+                        <view>注册地址</view><view>{{invoiceAddress}}</view>
+                    </view>
+                    <view wx:if="{{invoiceBank}}">
+                        <view>开户银行</view><view>{{invoiceBank}}</view>
+                    </view>
+                    <view wx:if="{{invoiceBankno}}">
+                        <view>银行卡号</view><view>{{invoiceBankno}}</view>
+                    </view>
+                    <view wx:if="{{notes}}">
+                        <view>备注</view><view>{{notes}}</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="order_cancel"  style="padding-bottom:{{bottomHeight}}rpx">
+        <view class="btn_pay" wx:if="{{item.status=='0'}}" bindtap="toPay">
+            <image class="icon" src="/assets/images/mine/icon_dzf.png" />付款
+        </view>
+		<!-- 待支付需求 -->
+        <view class="btn_cancel" bindtap="isCancelOrder" wx:if="{{item.status=='0'}}">
+            取消订单
+        </view>
+		
+		<!-- 待审核再次购买 -->
+		<!-- <view class="btn_cancel" bindtap="isCancelOrder" wx:if="{{orderStatusStr === '待审核'}}">
+		    再次购买
+		</view> -->
+		<!-- 待审核取消订单 -->
+		<view class="btn_cancel" bindtap="isCancelOrder" wx:if="{{orderStatusStr === '待审核'}}">
+		    取消订单
+		</view>
+	
+		
+        <view class="btn_cancel bgc" wx:if="{{orderStatusStr === '已出库'}}" bindtap="showMessageBox">
+            确认收货
+        </view>
+        <view class="btn_cancel" wx:if="{{invoiceUrl}}" data-invoiceUrl="{{invoiceUrl}}" bindtap="ViewInvoice"> 
+            电子发票
+        </view>
+        <!-- <view class="btn_cancel" wx:if="{{orderStatusStr === '已出库'}}" bindtap="onClickShowOrderFlowChart">
+            查看出库明细
+        </view>       -->
+    </view>
+    <!-- 确认收货弹框 -->
+    <view class="floatLayer" wx:if="{{isShowMessageBox}}">
+    </view>
+    <view class="floatContent" wx:if="{{isShowMessageBox}}">
+            <view class="title">提示</view>
+            <view class="text">请确认是否收到货物</view>
+            <view class="btn">
+                <view class="cancel" bindtap="cancel">取消</view>
+                <view class="Saveconfirm" bindtap="affirm">确认</view>
+            </view>
+    </view>
+    <!-- 取消订单弹框 -->
+    <view class="floatLayer" wx:if="{{isCancelOrder}}">
+    </view>
+    <view class="floatContent" wx:if="{{isCancelOrder}}">
+            <view class="title">提示</view>
+            <view class="text">请确认是否取消订单</view>
+            <view class="btn">
+                <view class="cancel" bindtap="cancel">取消</view>
+                <view class="Saveconfirm" bindtap="cancelOrder">确认</view>
+            </view>
+    </view>
+</view>

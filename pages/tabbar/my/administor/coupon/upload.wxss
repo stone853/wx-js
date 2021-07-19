@@ -1,0 +1,63 @@
+.container {
+	position: relative;
+	background:linear-gradient(180deg, #ec4c5f, #ffc0c7);
+	padding-top: 20rpx;
+	min-height:100vh;
+}
+.container textarea{
+  padding-top: 4px;
+  min-height: 48px;
+}
+.eckes-form .section{
+	margin: 0 15rpx 30rpx 15rpx;
+	background-color: #fff;
+	border-radius: 10rpx;
+	padding: 30rpx 25rpx 1rpx 25rpx;
+	display: block;
+	position: relative;
+}
+.top-bg{
+	width: 100%;
+	height: 170rpx;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.register-title{
+	color: #2B6CDE;
+	font-size: 28rpx;
+	height: 65rpx;
+	text-align: center;
+	border-bottom: 1px solid #e5e5e5;
+}
+.secret{
+	font-size: 26rpx;
+	text-align: center;
+	color: #F6A03B;
+	padding: 20rpx 0;
+}
+.eckes-btn{
+	height: 54rpx;
+	line-height: 53rpx;
+	text-align: center;
+	color: #fff;
+	padding: 0 11rpx;
+	border-radius: 8rpx;
+  background: linear-gradient(-60deg, #35E0CE, #08C5B1);
+}
+.parentClass .eckes-input{
+	margin-bottom: 18rpx;
+}
+.eckes-form-btn{
+	padding-bottom: 50rpx;
+}
+.eckes-submit{
+	width: 720rpx;
+	line-height: 88rpx;
+	background: #ec4c5f;
+	border-radius: 10rpx;
+	color: #fff;
+}
+textarea{
+	max-height: 320rpx;
+}

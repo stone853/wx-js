@@ -1,0 +1,62 @@
+<wxs module="role">
+var cover = function(imgUrl){
+  return imgUrl.split(",")[0];
+};
+module.exports = {
+	cover:cover
+}
+</wxs>
+<view class="container">
+
+  <!-- banner海报 -->
+  <view class="section-poster">
+    <swiper indicator-dots autoplay circular>
+      <swiper-item wx:for="{{adv}}">
+        <view class="swiper-item">
+          <image src="{{prefix_img+item.cover}}"></image>
+          <view class="swiper-name" wx:if="{{item.name && item.name!='null'}}">{{item.name}}</view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+<!-- 热门商品 -->
+<view wx:if="{{goods.length>0}}">
+  <view class="section section-good" wx:for="{{goods}}">
+    <view class="section-title">
+      {{item.type}}
+    </view>
+    <swiper 
+      snap-to-edge="{{true}}" 
+      display-multiple-items="{{0}}" 
+      next-margin="20rpx" 
+      previous-margin="20rpx"
+    >
+      <swiper-item wx:for="{{goods}}" wx:for-item="child">
+        <view class="swiper-item goods-item" data-id="{{child.id}}" bindtap="goDetail">
+          <image class="goods-cover" mode="aspectFill" src="{{host+prefix+item.imgUrl}}"></image>
+          <view class="goods-name">
+            {{child.name}}
+            <view class="goods-subtitle">{{child.subhead}}</view>
+            <view class="goods-price">
+              ￥<text class="_discount">{{child.priceDiscount||child.price}} </text>
+              <text class="_price" wx:if="{{child.priceDiscount}}">￥{{child.price}}</text>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+
+<!-- 热门店铺
+<view class="section section-store">
+  <view class="store" wx:for="{{store}}">
+    <image class="store-abs store-bg" src="{{host+item.bg}}" lazy-load mode="aspectFill"></image>
+    <image class="store-abs store-cover" src="{{host+item.cover}}" lazy-load></image>
+    <view class="store-abs store-name">{{item.name}}</view>
+    <view class="store-abs store-subtitle">{{item.subtitle}}</view>
+  </view>
+</view> -->
+
+</view>

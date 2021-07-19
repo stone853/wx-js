@@ -1,0 +1,33 @@
+<view class="container">
+
+  <view class="section-cell">
+
+    <view class="cell-item" bindtap="goPage" data-url="store/service/service">
+      <van-icon class="cell-icon" name="gold-coin-o" color="#f00"/>
+      <view class="cell-title">余额提现</view> 
+      <view class="cell-subtitle">￥{{store.scope/100}}</view>
+      <van-icon class="cell-arrow" name="arrow" />
+    </view>
+
+    <view class="cell-hr"></view>
+
+    <view class="cell-item" bindtap="goPage" data-url="wait?id={{store.id}}">
+      <van-icon class="cell-icon" name="todo-list-o" color="#0008ff"/>
+      <view class="cell-title">待发货</view> 
+      <view class="cell-subtitle">{{wait}}</view>
+      <van-icon class="cell-arrow" name="arrow" />
+    </view>
+
+    <view class="cell-item" bindtap="goPage" data-url="store/service/service">
+      <van-icon class="cell-icon" name="passed" color="#2abdb0"/>
+      <view class="cell-title">已完成</view> 
+      <view class="cell-subtitle"></view>
+      <van-icon class="cell-arrow" name="arrow" />
+    </view>
+
+    <view class="cell-hr"></view>
+    
+
+
+  </view>
+</view>

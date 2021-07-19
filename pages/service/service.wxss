@@ -1,0 +1,157 @@
+.container{
+  position: relative;
+  min-height: 100vh;
+}
+
+.privilege{
+  padding: 30rpx;
+  position: relative;
+}
+.privilege .e-title{
+  color: #333;
+  text-shadow: unset;
+}
+.privilege .e-subtitle{
+  color: #999;
+  text-shadow: unset;
+}
+.privilege .e-title::before{
+  background: #f7ce9e;
+}
+
+.privilege-star{
+  width: 690rpx;
+  background: #ebebeb;
+  border-radius: 15rpx;
+  overflow:hidden;
+  box-shadow: #999 0 1rpx 15rpx;
+  margin-bottom: 40rpx;
+}
+.p-s-top{
+  background: #1d1f24;
+  background-image: linear-gradient(155deg, #1d1f24, #393f47);
+  border-radius: 15rpx;
+  color: #fff;
+  overflow:hidden;
+  position: relative;
+  box-shadow: #999 0 1rpx 15rpx;
+  padding: 20rpx;
+}
+.p-s-bottom{
+  background-image: linear-gradient(to right, #ebebeb, #fff, #ebebeb);
+  line-height:70rpx;
+  padding:0 20rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.p-s-b-r{
+  float: right;
+  color: #d69c63;
+  font-weight: bold;
+}
+.p-s-t-i{
+  padding-right: 15rpx;
+  color: #f7ce9e;
+  opacity: .8;
+}
+
+.e-title{
+  /* color: #d69c63; */
+  color: #f7ce9e;
+  font-size: 34rpx;
+  font-weight: bold;
+  position: relative;
+  text-shadow: rgb(71, 71, 71) 1rpx 1rpx 0;
+  z-index: 2;
+}
+.e-title::before{
+  content: "";
+  position: absolute;
+  width: 95rpx;
+  height: 20rpx;
+  border-radius: 15rpx;
+  background: rgb(133, 104, 72);
+  opacity: .8;
+  z-index: -1;
+  bottom: -5rpx;
+  left: -5rpx;
+}
+.e-subtitle{
+  padding-top: 5rpx;
+  color: #6f6d6e;
+  font-size: 24rpx;
+  padding-bottom: 25rpx;
+}
+
+.flex{
+  padding:10rpx 30rpx;
+  width: 750rpx;
+  flex-wrap: wrap;
+}
+.flex-btn{
+  text-align: center;
+  line-height: unset;
+  margin: unset;
+  background: none;
+  border: 0;
+}
+.flex-item{
+  width: 25%;
+}
+.flex-more-btn{
+  text-align: left;
+  width:100%;
+  padding-left: 0;
+}
+.flex-btn::before,
+.flex-btn::after {
+  display: none;
+}
+.cell-hr{
+  height: 30rpx;
+}
+
+.cell-item {
+  display: flex;
+  line-height: 85rpx;
+  flex-wrap: wrap;
+}
+
+.cell-icon {
+  height: 85rpx;
+  width: 85rpx;
+  font-size: 42rpx;
+}
+
+.cell-title {
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.cell-desc{
+  width: 100%;
+  line-height: 40rpx;
+  color: #268fda;
+  background: #ecf9ff;
+}
+.cell-desc .van-notice-bar {
+  height: 50rpx;
+}
+.cell-desc .van-notice-bar view{
+  font-size: 26rpx;
+}
+.cell-subtitle {
+  text-align: right;
+  padding-right: 25rpx;
+  flex: 1;
+  color: #999;
+}
+.section-cell{
+  padding:0 20rpx;
+}
+
+.cell-hr {
+  margin: 15rpx 0;
+  height: 1px;
+  background: #eee;
+  width: 100%;
+}

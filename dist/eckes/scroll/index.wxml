@@ -1,0 +1,13 @@
+<view class="eckes-scroll">
+    <scroll-view class="scroll-view" scroll-x="true" bindscroll="scroll" style="width: 100%">
+        <view 
+        class="scroll-view-item {{index==currentNavIndex?'action':''}}" 
+        wx:for="{{list}}" 
+        data-id="{{item.id}}"
+        data-idx="{{index}}"
+        bindtap="totap"
+        >
+        {{item.name}}
+        </view>
+    </scroll-view>
+</view>

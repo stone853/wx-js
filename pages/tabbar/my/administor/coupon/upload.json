@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "发布优惠券",
+  "navigationBarBackgroundColor": "#ec4c5f",
+  "navigationBarTextStyle":"white",
+  "disableScroll":false,
+  "usingComponents": {
+    "eckes-input":"../../../../../dist/eckes/input/index",
+    "van-uploader":"../../../../../dist/vant-weapp/uploader/index",
+    "van-datetime-picker":"../../../../../dist/vant-weapp/datetime-picker/index",
+    "van-popup":"../../../../../dist/vant-weapp/popup/index"
+  }
+}

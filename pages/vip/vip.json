@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "会员特权",
+  "usingComponents": {
+    "van-icon":"../../../dist/vant-weapp/icon/index",
+    "van-dialog":"../../../dist/vant-weapp/dialog/index"
+  }
+}

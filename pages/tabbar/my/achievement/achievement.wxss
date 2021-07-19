@@ -1,0 +1,138 @@
+.container{
+  background: #eff3ff;
+  min-height: 100vh;
+}
+.icon-box{
+  flex-wrap: wrap;
+  position: relative;
+  background:url('https://eckes.top/eckes_admin/php/wximg/achieve/bg2.jpg') left top repeat-y;
+  background-size: 750rpx auto;
+  padding: 50rpx 65rpx 90rpx 45rpx;
+}
+.icon{
+  width:640rpx;
+  border-radius:15rpx;
+  position: relative;
+  z-index: 4;
+  background: #f5f1eb;
+  border: 1px solid #dfd6cc;
+  color: #c2b09f;
+  padding:30rpx 20rpx 20rpx 160rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+  overflow: hidden;
+}
+.icon-title{
+  color: rgb(201, 64, 0);
+  font-size: 30rpx;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+}
+.icon .achieve-icon{
+  position: absolute;
+  width: 120rpx;
+  height: 120rpx;
+  left:20rpx;
+  top:20rpx;
+  opacity: .2;
+}
+.icon .gift{
+  position: absolute;
+  right: 40rpx;
+  top: 30rpx;
+  width:90rpx;
+  height: 90rpx;
+  display: none;
+}
+.icon.has .achieve-icon{
+  opacity: 1;
+}
+.icon.has.gift1{
+  background: #fff4e4;
+}
+.icon.has.gift1 .gift{
+  display: block;
+}
+.icon .gift_2{
+  display: none;
+  position: absolute;
+  right:0rpx;
+  top: 0;
+  width:200rpx;
+  display: none;
+  opacity: .5;
+}
+.icon.complete .gift_2{
+  display: block;
+}
+
+.icon-box .i-bg{
+  width:750rpx;
+  position: absolute;
+  left:0;
+  z-index:3;
+}
+.i-bg1{
+  top:0;
+}
+.i-bg3{
+  bottom: 0;
+}
+
+.explain{
+  background-image: linear-gradient(155deg,#000,#4b4b4b);
+  padding: 30rpx;
+}
+.e-title{
+  /* color: #d69c63; */
+  color: #f7ce9e;
+  font-size: 34rpx;
+  font-weight: bold;
+  position: relative;
+  text-shadow: rgb(71, 71, 71) 1rpx 1rpx 0;
+  z-index: 2;
+}
+.e-title::before{
+  content: "";
+  position: absolute;
+  width: 95rpx;
+  height: 20rpx;
+  border-radius: 15rpx;
+  background: rgb(133, 104, 72);
+  opacity: .8;
+  z-index: -1;
+  bottom: -5rpx;
+  left: -5rpx;
+}
+.e-subtitle{
+  padding-top: 5rpx;
+  color: #6f6d6e;
+  font-size: 24rpx;
+  padding-bottom: 25rpx;
+}
+.e-desc{
+  padding-left: 40rpx;
+  padding-bottom: 30rpx;
+}
+.e-desc-m{
+  position: relative;
+  color: #f7ce9e;
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+}
+.e-desc-m::before{
+  content:"";
+  position: absolute;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background: #f7ce9e;
+  left: -40rpx;
+  top: 10rpx;
+  box-shadow: #d69c63 0 0 25rpx;
+}
+.e-desc-sub{
+  color: #6f6d6e;
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+}

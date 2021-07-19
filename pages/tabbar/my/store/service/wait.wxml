@@ -1,0 +1,41 @@
+<view class="container">
+
+  <view class="item-box" wx:for="{{list}}">
+
+    <van-panel useFooterSlot title="{{item.prods[0].pname}}..." desc="订单号：{{item.out_trade_no}}" status="￥{{item._amount/100}}">
+      <view class="content">
+        <view class="info-box">
+          <view class="info createTime">创建时间：{{item.createTime}}</view>
+          <view class="info out_trade_no">收货地址：{{item.address}}</view>
+          <view class="cell-hr"></view>
+        </view>
+
+        <view class="prods-box {{open[index]? 'prods-open':''}}">
+          <view class="prods-btn" bindtap="setOpen" data-index="{{index}}"><van-icon name="shrink" /></view>
+          <view class="prods" wx:for="{{item.prods}}" wx:for-item="order" wx:for-index="pidx">
+            <view class="item flex">
+              <view class="cover">
+                  <image src="{{host+order.pcover}}"></image>
+              </view>
+              <view class="main">
+                  <view class="pname">{{order.pname}}</view>
+                  <view class="psize" hidden="{{order.size=='均码'}}">规格：{{order.size}}</view>
+                  <view class="psize" hidden="{{order.color=='默认'}}">颜色：{{order.color}}</view>
+                  <view class="price">x {{order.pnumber}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+      </view>
+      <view slot="footer" style="text-align:right;">
+        <van-button data-no="{{item.out_trade_no}}" bindtap="setDeliver" size="small" type="info">确认发货</van-button>
+      </view>
+    </van-panel>
+
+  </view>
+
+  <view wx:if="{{list.length==0}}">
+    <van-empty description="暂无待发货订单~"></van-empty>
+  </view>
+</view>

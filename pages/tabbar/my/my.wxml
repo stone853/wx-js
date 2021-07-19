@@ -1,0 +1,218 @@
+<wxs module="role">
+var badge = function(level){
+  if(level<=40){
+    return "用户"
+  }
+  if(level>90){
+    return "管理员";
+  }
+};
+var badgeType = function(level){
+  if(level<=90){
+    return "00";
+  }
+  if(level>90){
+    return "99";
+  }
+}
+module.exports = {
+	badge:badge,
+	badgeType:badgeType
+}
+</wxs>
+<view class="container" style="padding-bottom:{{saveH+120}}rpx; padding-top:{{navH}}px;">
+
+  <!-- navbar -->
+  <view class="nav" style="height:{{navH}}px">
+    <view bindtap="clickSetting" class="nav-btn" style="height: {{headerBtnPosi.height}}px;">
+      <!-- 11 -->
+    </view>
+    <view class="nav-title" style="line-height: {{headerBtnPosi.height}}px;">用户中心</view>
+  </view>
+
+  <!-- user信息 -->
+  <view class="section-user">
+    <view class="section-avator flex">
+      <!-- 头像 -->
+      <image src="{{apiInfo.avatarUrl}}"></image>
+      <!-- 昵称 -->
+      <view class="username-box signOut" hidden="{{!signOut}}">
+        <button class="btn-sign" bindtap="getUserInfo">未授权登录</button>
+      </view>
+      <view class="username-box" hidden="{{signOut}}">
+        <view class="username">{{apiInfo.nickName}}</view>
+        <view class="badge-box flex">
+          <view class="badge badge{{role.badgeType(apiInfo.level)}}">{{role.badge(apiInfo.level)}}</view>
+          <view class="badge level">Lv{{apiInfo.level}}</view>
+        </view>
+      </view>
+      <!-- 箭头 -->
+      <van-icon hidden="{{signOut}}" bindtap="getQrcode" class="user-arrow" name="qr" size="38rpx" />
+      <van-icon hidden="{{signOut}}" bindtap="goPage" data-url="setting/setting" class="user-arrow" name="setting-o" size="38rpx" />
+    </view>
+
+    <view class="section-number flex">
+      <view class="number-item" bindtap="goPage" data-url="order/order">
+        <view class="number">{{apiInfo.orderNum||"-"}}</view>
+        订单
+      </view>
+      <view class="number-item" bindtap="goPage" data-url="cart/cart">
+        <view class="number">{{apiInfo.carNum||"-"}}</view>
+        购物车
+      </view>
+      <!--  bindtap="showrequestSubscribeMessage" -->
+      <view class="number-item" bindtap="goPage" data-url="integral/integral">
+        <view class="number">{{apiInfo.integralNum||"-"}}</view>
+        积分 <van-icon name="question"  color="#0BB7A5"/>
+      </view>
+    </view>
+
+    <view class="section-card {{apiInfo.isVip==1?'_vip':''}} flex" bindtap="goPage" data-url="../../vip/vip">
+      <view class="card-left">
+        <view class="card-title">
+          <van-icon name="diamond" /> {{apiInfo.isVip==1?'星月':'普通'}}会员
+        </view>
+        <view class="card-desc">
+          会员专享领取积分，快来看看把！
+        </view>
+      </view>
+      <view class="card-right">
+        <van-icon class="user-arrow" name="arrow" />
+      </view>
+    </view>
+
+    <view class="section-cell">
+
+      <view class="cell-item" bindtap="goPage" data-url="task/task">
+        <van-icon class="cell-icon" name="todo-list" color="#9579fb"/>
+        <view class="cell-title">积分任务</view>
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+      
+      <view class="cell-item" bindtap="goPage" data-url="coupon/coupon">
+        <van-icon class="cell-icon" name="coupon" color="#ffe774"/>
+        <view class="cell-title">优惠券</view>
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view class="cell-item" bindtap="goPage" data-url="achievement/achievement">
+        <van-icon class="cell-icon" name="medal" color="#ed8279"/>
+        <view class="cell-title">成就</view>
+        <view class="cell-subtitle"><!--3个--></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view class="cell-item" bindtap="goPage" data-url="address/address">
+        <van-icon class="cell-icon" name="gift-card-o" color="#0bcc46"/>
+        <view class="cell-title">徽章</view>
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view class="cell-item" bindtap="goPage" data-url="../../h5/list">
+        <van-icon class="cell-icon" name="aim" color="#f00"/>
+        <view class="cell-title">小游戏中心</view>
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view wx:if="{{apiInfo.isStore==1}}" class="cell-hr"></view>
+
+      <view wx:if="{{(apiInfo.isStore==0 || apiInfo.isStore==2) && apiInfo.plf!='-' && apiInfo.phone==1}}" class="cell-item" bindtap="goPage" data-url="store/open/open">
+        <van-icon class="cell-icon" name="shop" color="#0ce"/>
+        <view class="cell-title">{{apiInfo.plf}}</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view wx:if="{{apiInfo.isStore==1}}" class="cell-item" bindtap="goPage" data-url="store/update/update">
+        <van-icon class="cell-icon" name="shop-o" color="#0ce"/>
+        <view class="cell-title">维护店铺</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view wx:if="{{apiInfo.isStore==1}}" class="cell-item" bindtap="goPage" data-url="store/items/items">
+        <van-icon class="cell-icon" name="apps-o" color="#f00"/>
+        <view class="cell-title">维护商品</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view wx:if="{{apiInfo.isStore==1}}" class="cell-item" bindtap="goPage" data-url="store/service/service">
+        <van-icon class="cell-icon" name="smile-o" color="#ae10ff"/>
+        <view class="cell-title">商家服务</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view class="cell-hr"></view>
+
+      <view class="cell-item" bindtap="goPage" data-url="../../service/service">
+        <van-icon class="cell-icon" name="service" color="#b3c1e9"/>
+        <view class="cell-title">客服中心</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+<!-- 
+      <view class="cell-item">
+        <van-icon class="cell-icon" name="service" color="#b3c1e9"/>
+        <view class="cell-title">
+          <button bindcontact="toContact" open-type="contact">客服</button>
+        </view> 
+        <view class="cell-subtitle"></view>
+      </view>
+       -->
+      <view wx:if="{{apiInfo.level>=90}}" class="cell-item" bindtap="goPage" data-url="administor/store/store">
+        <van-icon class="cell-icon" name="shop-o" color="#0cb8a6"/>
+        <view class="cell-title">store</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view wx:if="{{apiInfo.level>=90}}" class="cell-item" bindtap="goPage" data-url="administor/coupon/upload">
+        <van-icon class="cell-icon" name="share" color="#000"/>
+        <view class="cell-title">发布优惠券</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+      
+      <view wx:if="{{apiInfo.level>=90}}" class="cell-item" bindtap="goPage" data-url="administor/adv/upload">
+        <van-icon class="cell-icon" name="scan" color="#000"/>
+        <view class="cell-title">首页大广告</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+      <view wx:if="{{apiInfo.level>=90}}" class="cell-item" bindtap="goPage" data-url="administor/refund/refund">
+        <van-icon class="cell-icon" name="shop-o" color="#0cb8a6"/>
+        <view class="cell-title">退款申请</view> 
+        <view class="cell-subtitle"></view>
+        <van-icon class="cell-arrow" name="arrow" />
+      </view>
+
+
+    </view>
+  </view>
+
+  <view class="_eckes">
+    本小程序由 (微信号)<text style="color:#ababab">eckes_</text> 独立开发
+  </view>
+
+  <van-dialog
+    use-slot
+    title="用户专属小程序码"
+    show="{{ showQR }}"
+    showConfirmButton="{{false}}"
+    closeOnClickOverlay
+  >
+    <view class="section">
+      <image src="{{host+apiInfo.qrcode}}" mode="widthFix"></image>
+
+      <view class="qr-notice">描述<van-icon name="question" color="#00aff3"/>：扫码购物返利 目前仅支持 收货地址 为 雅慧店内，后续将开通更多门店。</view>
+    </view>
+  </van-dialog>
+
+</view>

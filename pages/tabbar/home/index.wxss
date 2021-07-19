@@ -1,0 +1,125 @@
+.container {
+  padding-bottom: 128rpx;
+}
+
+swiper {
+  height: 300rpx;
+}
+
+.section-poster {
+  margin-bottom: 25rpx;
+}
+
+.section-poster image {
+  width: 750rpx;
+  height: 300rpx;
+}
+
+.section-poster .swiper-item {
+  position: relative;
+}
+
+.section-poster .swiper-name {
+  position: absolute;
+  bottom: 50rpx;
+  padding: 10rpx 20rpx;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-bottom: 20rpx;
+  padding-left: 21rpx;
+  border-left: 4px solid #ec4c5f;
+}
+
+.section {
+  padding: 0 25rpx 25rpx;
+}
+
+.store {
+  position: relative;
+  height: 300rpx;
+  background: #000;
+  color: #fff;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.store .store-abs {
+  position: absolute;
+}
+
+.store .store-bg {
+  opacity: .5;
+  width: 700rpx;
+  height: 300rpx;
+}
+
+.store .store-cover {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  left: 20rpx;
+  top: 20rpx;
+}
+
+.store .store-name {
+  font-size: 32rpx;
+  left: 130rpx;
+  top: 20rpx;
+  font-weight: bold;
+}
+
+.store .store-subtitle {
+  opacity: .9;
+  top: 65rpx;
+  left: 130rpx;
+  font-size: 24rpx;
+}
+
+.section-good swiper {
+  height: 440rpx;
+}
+
+.section-good .goods-item {
+  padding-right: 40rpx;
+  height: 300rpx;
+  position: relative;
+}
+
+.section-good .goods-cover {
+  display: block;
+  width: 300rpx;
+  height: 300rpx;
+  margin-bottom: 5rpx;
+}
+
+.section-good .goods-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.section-good .goods-subtitle {
+  color: #999;
+  font-size: 24rpx;
+}
+
+.section-good .goods-price {
+  color: #ec4c5f;
+}
+
+.section-good ._discount {
+  font-weight: bold;
+  font-size: 32rpx;
+}
+
+.section-good ._price {
+  font-size: 24rpx;
+  color: #999;
+  text-decoration: line-through;
+}

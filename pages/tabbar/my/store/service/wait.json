@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "待发货",
+  "usingComponents": {
+    "van-icon":"../../../../../dist/vant-weapp/icon/index",
+    "van-empty":"../../../../../dist/vant-weapp/empty/index",
+    "van-button":"../../../../../dist/vant-weapp/button/index",
+    "van-panel":"../../../../../dist/vant-weapp/panel/index"
+  }
+}

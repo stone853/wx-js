@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "维护商品",
+  "usingComponents": {
+    "eckes-scroll":"../../../../../dist/eckes/scroll/index",
+    "van-empty":"../../../../../dist/vant-weapp/empty/index",
+    "van-sidebar":"../../../../../dist/vant-weapp/sidebar/index",
+    "van-sidebar-item":"../../../../../dist/vant-weapp/sidebar-item/index"
+  }
+}

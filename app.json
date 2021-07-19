@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/tabbar/home/index",
+    "pages/tabbar/my/my",
+    "pages/tabbar/person/person",
+    "pages/search/search",
+    "pages/tabbar/my/administor/upload/upload",
+    "pages/tabbar/my/administor/store/store",
+    "pages/tabbar/my/administor/coupon/upload",
+    "pages/tabbar/my/address/address",
+    "pages/tabbar/my/order/order",
+    "pages/tabbar/my/cart/cart",
+    "pages/coupon/coupon",
+    "pages/vip/vip",
+    "pages/vip/help/help",
+    "pages/product/detail/detail",
+    "pages/product/order/order",
+    "pages/tabbar/my/setting/setting",
+    "pages/tabbar/my/coupon/coupon",
+    "pages/tabbar/my/administor/scan/scan",
+    "pages/tabbar/my/store/update/update",
+    "pages/tabbar/my/store/items/items",
+    "pages/tabbar/my/store/add/add",
+    "pages/tabbar/my/store/edit/edit",
+    "pages/tabbar/my/store/open/open",
+    "pages/tabbar/my/administor/refund/refund",
+    "pages/tabbar/my/achievement/achievement",
+    "pages/tabbar/my/task/task",
+    "pages/tabbar/person/storeDetail/storeDetail",
+    "pages/tabbar/my/integral/integral",
+    "pages/tabbar/my/ibill/ibill",
+    "pages/tabbar/my/store/service/service",
+    "pages/service/service",
+    "pages/h5/h5",
+    "pages/h5/list",
+    "pages/service/more/more",
+    "pages/tabbar/my/store/service/wait"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "哲小店"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/tabbar/home/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tabbar/person/person",
+        "text": "联系我们"
+      },
+      {
+        "pagePath": "pages/tabbar/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wxca1e7ba3fe18ff12",
+    "wx5db79bd23a923e8e"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

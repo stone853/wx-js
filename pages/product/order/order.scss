@@ -1,0 +1,486 @@
+.onClickAfter{
+  height: 59rpx;
+  padding: 0 35rpx;
+  line-height: 59rpx;
+  border: 1rpx solid #2B6CDE;
+  border-radius: 29px;
+  color: #2B6CDE;
+  font-size: 28rpx;
+  display: inline-block;
+}
+.order_detail .message{
+  width:100%;
+  height:74rpx;
+  padding-left: 20rpx;
+  font-size:26rpx;
+  color:#FB6317;
+  background: #FFF7DF;
+  box-sizing: border-box;
+  line-height: 74rpx;
+}
+.order_detail .content{
+  position: relative;
+  top:0;
+  left: 0;
+  background-color:#F8F8F8;
+  width: 100%;
+  height: auto;
+  padding:0 20rpx 70rpx 20rpx;
+}
+.order_detail .content>image{
+  width:100%;
+  height: 198rpx;
+  display: block;
+}
+.order_detail .content .order_info{
+  width:710rpx;
+}
+.m_order_detail{
+  width:710rpx;
+}
+.order_message{
+  padding: 0 27rpx 43rpx;
+  box-sizing: border-box;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  margin-bottom: 20rpx;
+  color:#8D8D8D;
+  font-size: 26rpx;
+}
+.order_goos_list{
+  width:710rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  padding-bottom: 18rpx;
+}
+.m_order_good_info{
+  height: 212rpx;
+  width:650rpx;
+  padding-top: 30rpx;
+  margin:0 auto;
+  border-bottom:1rpx solid #EFEFF2;
+}
+.m_order_good_image{
+  border:1px solid #EFEFF2;
+  width: 150rpx;
+  height: 150rpx;
+  box-sizing: border-box;
+  float: left;
+}
+.m_order_good_image image{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.m_u_order_good_info{
+  margin-left:21rpx;
+  padding-top: 21rpx;
+  float: left;
+}
+.m_u_order_good_price{
+  float: right;
+  margin-left:21rpx;
+  padding-top: 21rpx;
+}
+.m_u_order_good_info>view:first-child{
+  height: 85rpx;
+  color:#181818;
+  font-weight: 500;
+  font-size: 28rpx;
+}
+.m_u_order_good_info>view:last-child{
+  height: 34rpx;
+  color:#8D8D8D;
+  font-weight: 400;
+  font-size: 24rpx;
+}
+.m_u_order_good_info>view{
+  width: 325rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.m_u_order_good_prodSpecification{
+  color:#8D8D8D;
+  font-size:24rpx;
+}
+.m_u_order_good_price{
+  text-align: right;
+}
+.m_u_order_good_price .price{
+  height: 85rpx;
+}
+.m_u_order_good_price .price view:first-child{
+  color:#181818;
+  font-size: 28rpx;
+  margin-bottom: 5rpx;
+}
+.m_u_order_good_price .number{
+  color:#8D8D8D;
+  font-size:24rpx;
+  margin-left: 44rpx;
+}
+.m_u_order_good_price .linePrice{
+  color:#BBBBBB;
+  font-size:24rpx;
+  text-decoration:line-through;
+}
+.m_order_price{
+  padding-top:18rpx;
+}
+.m_order_price>view{
+  display: flex;
+  justify-content: space-between;
+  width: 650rpx;
+  margin:0 auto;
+  color:#181818;
+  font-size:26rpx;
+  line-height: 57rpx;
+}
+.m_order_price .appRealPayPrice{
+  font-weight: bold;
+}
+.m_order_price .appRealPayPrice,
+.m_order_price .refundSumPrice{
+  flex-direction:row-reverse;
+  justify-content:start;
+}
+.m_order_price .refundSumPrice{
+  padding: 0;
+  font-size:24rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(141,141,141,1);
+  line-height:33rpx;
+}
+.m_order_price .appRealPayPrice view:first-child{
+  color:#FF3237;
+  font-size:34rpx;
+  font-weight:blod;
+  margin-left:11rpx;
+}
+.order_address{
+  width:710rpx;
+  height: auto;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  box-sizing: border-box;
+  margin-top:20rpx;
+  padding: 35rpx 49rpx 35rpx 31rpx;
+}
+.m_order_address>view{
+  line-height: 57rpx;
+  font-size:26rpx;
+  overflow: hidden;
+}
+.m_order_title{
+  color:#161616;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+.m_order_address>view view:first-child{
+  color:#8D8D8D;
+  float: left;
+}
+.m_order_address>view view:last-child{
+  width:461rpx;
+  color:#181818;
+  float:right;
+}
+.m_order_info{
+  width:710rpx;
+  background:rgba(255,255,255,1);
+  border-radius:10rpx;
+  box-sizing: border-box;
+  margin-top:20rpx;
+  padding: 35rpx 49rpx 35rpx 31rpx;
+}
+.order_cancel{
+  width:750rpx;
+  height:auto;
+  background:rgba(255,255,255,1);
+  position: fixed;
+  bottom:0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.btn_cancel{
+  height:58rpx;
+  background:rgba(255,255,255,1);
+  line-height: 58rpx;
+  font-size: 28rpx;
+  color:#353535;
+  margin:20rpx 19rpx 19rpx 0;
+  padding:0 19rpx;
+  text-align:center;
+  border:1rpx solid rgba(187, 187, 187, 1);
+  border-radius:29rpx;
+  box-sizing: border-box;
+}
+.bgc{
+  background:linear-gradient(90deg,rgba(253,48,55,1),rgba(255,105,34,1));
+  color:#fff;
+  border:1rpx solid transparent;
+}
+.btn_pay{
+  width:260rpx;
+  height:58rpx;
+  background:linear-gradient(90deg,rgba(253,48,55,1),rgba(255,105,34,1));
+  border-radius:29rpx;
+  font-size: 28rpx;
+  color:#FFFFFF;
+  line-height: 58rpx;
+  margin:20rpx 24rpx 19rpx 0;
+  display: flex;
+  align-items: center;
+}
+.btn_pay image{
+  width:29rpx;
+  height: 29rpx;
+  margin:0 13rpx 0 19rpx;
+}
+.vux-popup-dialog {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 501;
+  transition-property: transform;
+  transition-duration: 300ms;
+  max-height: 100%;
+  overflow-y: scroll;
+  transform: translateY(2000px);
+  transition: transform 400ms;
+  background-color: #fff
+}
+
+.vux-popup-dialog .vux-popup-header {
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%
+}
+
+.vux-popup-dialog .vux-popup-header-title {
+  width: 100%;
+  text-align: center;
+  color: #222
+}
+
+.vux-popup-dialog .vux-popup-header-right {
+  position: absolute;
+  right: 0;
+  padding: 0 15px;
+  color: #999;
+  top:8rpx;
+}
+
+.vux-popup-dialog .vux-popup-header-right image {
+  width: 30rpx;
+  height: 30rpx
+}
+
+.vux-popup-dialog .active_item {
+  overflow: hidden;
+  height: 96%;
+  background-color: #f0f0f0;
+  padding:0 50rpx;
+  box-sizing: border-box;
+  margin-top:33rpx;
+}
+.vux-popup-dialog .active_item .active_item_li .viewli{
+  height: 112rpx; 
+}
+.vux-popup-dialog .active_item .active_item_li:first-child .view_image .un_active{
+  display: none;
+}
+.vux-popup-dialog .active_item .active_item_li .view_image .active{
+  width:29rpx;
+  height: 29rpx;
+}
+.vux-popup-dialog .active_item .active_item_li .view_image .un_active{
+  width:14rpx;
+  height: 14rpx;
+}
+.vux-popup-dialog .active_item .active_item_li .active_item_p {
+  width: 100%;
+  color: #666;
+  display: flex;
+  position: relative;
+  top:0;
+  left: 0
+}
+
+.vux-popup-dialog .active_item .active_item_li .active_item_p .viewli {
+  width: 100%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  top:0rpx;
+  left:0rpx;
+}
+.vux-popup-dialog .active_item .active_item_li .active_item_p .u_active_type {
+  font-size: 28rpx;
+  color:#181818;
+}
+.vux-popup-dialog .active_item .active_item_li .active_item_p .u_active_policy {
+  font-size: 24rpx;
+  color: #8D8D8D;
+}
+.vux-popup-dialog .active_item .active_item_li .active_item_p .u_active_bonusIcon {
+  color: #D58B17;
+  border: #D58B17 1px solid;
+}
+.vux-popup-dialog .active_item .active_item_li .active_item_p .viewli{
+  padding-left: 43rpx;
+}
+.vux-popup-dialog .active_item .active_item_li:first-child .active_item_p .viewli .active_type_text{
+  color:#2C6CDE;
+}
+.vux-popup-dialog .active_item .active_item_li .view_image .active{
+  display: none;
+}
+.vux-popup-dialog .active_item .active_item_li:first-child .view_image .active{
+  display: block;
+}
+.vux-popup-dialog .active_item .active_item_li:first-child .view_image{
+  width:29rpx;
+  text-align: center;
+  position: relative;
+  top:8rpx;
+  left:0;
+}
+.vux-popup-dialog .active_item .active_item_li .view_image{
+  width:29rpx;
+  text-align: center;
+  position: relative;
+  top:-8rpx;
+  left:0;
+}
+.vux-popup-dialog .active_item .active_item_li .view_image .border{
+  height: 104rpx;
+  width:1rpx;
+  position: absolute;
+  top:28rpx;
+  left: 13rpx;
+  background: #E5E5E5;
+}
+.vux-popup-dialog .active_item .active_item_li:last-child .view_image .border{
+  display:none;
+}
+.Activity {
+  box-sizing: border-box;
+  background: #fff
+}
+
+.Activity .active_item {
+  background: #fff
+}
+
+.couponActivity {
+  padding-top: 44px;
+  box-sizing: border-box;
+  background: #f0f0f0
+}
+
+.couponActivity .vux-popup-header_coupon {
+  display: flex;
+  height: 44px;
+  line-height: 44px;
+  font-size: 16px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+}
+.popup-dialog-show {
+  transform: translateY(0)
+}
+.vux-popup-mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 400ms;
+  overflow-y: hidden;
+  display: none
+}
+.popup-mask-show {
+  opacity: 1;
+  display: block
+}
+
+
+/* 消息提示框 */
+.floatLayer{
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  background: #000;
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 1;
+}
+.floatContent{
+  width: 540rpx;
+  position: fixed;
+  z-index: 2;
+  background: #fff;
+  border-radius: 20rpx;
+  left: 13%;
+  top:26%;
+}
+.floatContent .title{
+  text-align: center;
+  color: #333;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  border-top-left-radius:20rpx; 
+  border-top-right-radius:20rpx; 
+  margin-top:40rpx; 
+}
+.floatContent .text{
+  font-size: 30rpx;
+  color: #333;
+  margin: 50rpx 0; 
+  text-align: center;
+}
+.floatContent .btn{
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  padding:20px 30rpx
+}
+.floatContent .cancel{
+  flex: 1;
+  text-align: center;
+  line-height: 88rpx;
+  color: #2C6CDE;
+  font-size: 28rpx;
+  font-weight: 500;
+  border: 1rpx solid;
+  border-radius: 33px;
+  margin-right: 20rpx;
+}
+.floatContent .Saveconfirm{
+  flex: 1;
+  color: #fff;
+  text-align: center;
+  line-height: 88rpx;
+  background: #2C6CDE;
+  border-radius:33px;
+}

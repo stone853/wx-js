@@ -1,0 +1,105 @@
+<wxs module="role">
+var cover = function(imgUrl){
+  return imgUrl.split(",")[0];
+};
+module.exports = {
+	cover:cover
+}
+</wxs>
+<view class="container">
+
+  <eckes-scroll list="{{t1}}" bindtotap="changeNav"></eckes-scroll>
+
+  <view class="side-box">
+    <van-sidebar custom-class="side2" active-key="{{ t2ActKey }}" bind:change="onSideChange2">
+      <van-sidebar-item title="{{item.name}}" wx:for="{{t2}}"/>
+    </van-sidebar>
+
+    <view class="side-main-2" wx:for="{{t2}}" wx:for-item="t2" wx:for-index="i2" hidden="{{t2ActKey!=i2}}">
+      
+      <van-sidebar active-key="{{ t3ActKey }}" bind:change="onSideChange3">
+        <van-sidebar-item title="{{item.name}}" wx:for="{{t3[i2]}}"/>
+      </van-sidebar>
+
+      <view class="side-main-3" wx:for="{{t3[i2]}}" wx:for-item="t3" wx:for-index="i3" hidden="{{t3ActKey!=i3}}">
+
+        <scroll-view scroll-y="true" style="height: calc(100vh - 62rpx);" >
+          <view class="item" wx:for="{{prod[i2][i3]}}">
+            <image src='{{host+role.cover(item.cover)}}' data-id="{{item.id}}" bindtap="goDetail"></image>
+            <view class="item-content">
+              <view class="item-title">{{item.name}}</view>
+              <view class="item-subhead">{{item.subtitle}}</view>
+              <!-- <view class="item-typedesc">{{item.typedesc}}</view> -->
+              <view class="price">
+                ¥{{item.discount||item.price}}
+                <text wx:if="{{item.discount}}" style="font-size:24rpx; color:#999;text-decoration:line-through">¥{{item.price}}</text>
+              </view>
+              <view class="item-add" bindtap="onAddCart" data-idx="{{index}}" wx:if="{{item.color=='默认' && item.size=='均码'}}">
+                <view class="hasNumber {{cartList[item.id]? 'showNumber' : ''}}">{{cartList[item.id]? 'x'+cartList[item.id] : ''}}</view>
+                <van-icon name="add" />
+              </view>
+              <view class="item-add item-choosespec" data-item="{{item}}" bindtap="onChooseSpec" wx:else>
+                <view class="hasNumber {{cartList[item.id]? 'showNumber' : ''}}">{{cartList[item.id]? 'x'+cartList[item.id] : ''}}</view>
+                选规格
+              </view>
+            </view>
+          </view>
+          <view class="empty" wx:if="{{prod[i2][i3].length==0}}">
+            <van-empty image="search" description="分类下无商品！" />
+          </view>
+        </scroll-view>
+
+
+      </view>
+          
+
+    </view>
+
+  </view><!-- side-box over -->
+
+  <view class="shop-cart" bindtap="goCart" wx:if="{{cartNum>0}}">
+    <image src="/assets/images/mine/shopcart.png" />
+    <view>{{cartNum}}</view>
+  </view>
+
+
+  <van-dialog
+    use-slot
+    title="选择规格"
+    show="{{ showChoose }}"
+    showConfirmButton="{{false}}"
+    closeOnClickOverlay
+  >
+    <view class="choose-box section-content">
+      <view class="i-c-title">
+        商品颜色
+      </view>
+      <view class="i-size flex">
+        <view data-idx="{{index}}" data-value="{{item}}" bindtap="handlerColor" class="i-size-item {{form.colorAct==index ?'size-action':''}}" wx:for="{{form.color}}">
+          {{item}}
+        </view>
+      </view>
+
+      <view class="i-c-title">
+        规格尺寸
+      </view>
+      <view class="i-size flex">
+        <view data-idx="{{index}}" data-value="{{item}}" bindtap="handlerSize" class="i-size-item {{form.sizeAct==index?'size-action':''}}" wx:for="{{form.size}}">
+          {{item}}
+        </view>
+      </view>
+
+      <view class="i-c-title">
+        数量
+      </view>
+      <view class="i-size flex">
+        <van-stepper min="{{1}}" disable-input max="20" bind:change="onStepper"/>
+      </view>
+
+      <button class="eckes-submit" bindtap="addCartSpec" disabled="{{submitDisabled}}">
+        添加
+      </button>
+    </view>
+  </van-dialog>
+
+</view>

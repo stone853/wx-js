@@ -1,0 +1,150 @@
+<view class="container">
+  <view class="open-tips" style="margin-bottom:20rpx;font-size:26rpx;">
+    开店须知：严禁发布虚假伪劣违禁等物品，违反者将永久关停店铺，并追究实名人的相关责任。
+  </view>
+
+  <form class="eckes-form" bindsubmit="eckesFormSubmit">
+    <view class="section">
+
+      <eckes-input label="是否参与平台优惠活动" type="radio" required>
+        <radio-group name="isEvent" >
+          <label>
+            <radio value="1" checked="{{otherForm.isEvent==1}}"/>参与
+          </label>
+          <label>
+            <radio value="0" checked="{{otherForm.isEvent==0}}"/>不参与
+          </label>
+        </radio-group>
+      </eckes-input>
+      
+      <eckes-input label="商品分类" type="radio" required>
+        <radio-group name="typefirst" bindchange="radioChange">
+          <label wx:for="{{firstList}}">
+            <radio value="{{index +'_eckes_'+ item.dictcode + '_eckes_' + item.dictname}}" checked="{{item.dictcode==otherForm.typeParent}}" />{{item.dictname}}</label>
+        </radio-group>
+      </eckes-input>
+      
+      <eckes-input label="商品二级分类" type="radio" required>
+        <radio-group name="typesecond" bindchange="radioChange2">
+          <view hidden="{{otherForm.typeParent != key}}" wx:for="{{secondList}}" wx:for-index="key" wx:for-item="value">
+             <label wx:for="{{value}}" wx:for-item="child" wx:for-index="cidx">
+              <radio checked="{{child.dictcode==otherForm.typeChild}}"  value="{{cidx +'_eckes_'+ child.dictcode + '_eckes_' + child.dictname}}" />{{child.dictname}}</label> 
+          </view>
+        </radio-group>
+      </eckes-input>
+
+      <eckes-input 
+        label="商品名称" 
+        name="name"
+        required
+        value="{{form.name}}"
+        maxlength="{{40}}"
+        placeholder="请输入商品名称"
+      />
+      <eckes-input 
+        label="商品简介" 
+        name="subtitle"
+        maxlength="{{64}}"
+        type='textarea'
+        value="{{form.subtitle}}"
+        placeholder="请输入商品简介，限制64个字符"
+      />
+
+      <eckes-input 
+        label="商品封面" 
+        required
+        type="checkbox"
+      >
+        <view class="input-tip">最多上传9张！</view>
+        <view class="img-box">
+          <van-uploader 
+          id="cover"
+          upload-icon="plus" 
+          sizeType="{{['compressed']}}"
+          size="50px" 
+          upload-text="点击上传" 
+          style="display: inline-block;" 
+          file-list="{{ otherForm.cover }}" 
+          bind:after-read="img_after" 
+          bind:delete="img_del" 
+          multiple="{{true}}" 
+          preview-image="{{true}}" 
+          max-count="9" 
+          deletable="{{ true }}" />
+        </view>
+      </eckes-input>
+
+      <eckes-input 
+        label="商品单价" 
+        name="price"
+        required
+        value="{{form.price}}"
+        type="dight"
+        maxlength="{{7}}"
+        placeholder="请输入商品单价"
+      />
+      <eckes-input 
+        label="商品促销价" 
+        value="{{form.discount}}"
+        name="discount"
+        type="dight"
+        maxlength="{{7}}"
+        placeholder="请输入商品促销价"
+      />
+      
+      <eckes-input 
+        label="商品排序" 
+        name="sort"
+        value="{{form.sort}}"
+        type="number"
+        maxlength="{{3}}"
+        placeholder="请输入商品排序值1-999，默认100"
+      />
+
+      <eckes-input 
+        label="规格尺寸" 
+        value="{{form.size}}"
+        name="size"
+        maxlength="{{48}}"
+        placeholder="请输入规格尺寸，请使用 空格 隔开，默认均码"
+      />
+
+      <eckes-input 
+        label="商品颜色" 
+        value="{{form.color}}"
+        name="color"
+        maxlength="{{68}}"
+        placeholder="请输入商品颜色，请使用 空格 隔开，默认默认"
+      />
+
+      <eckes-input 
+        label="商品编码" 
+        value="{{form.code}}"
+        name="code"
+        maxlength="{{8}}"
+        placeholder="无编码请勿填"
+      />
+
+      <eckes-input 
+        label="商品描述" 
+        name="content"
+        maxlength="{{420}}"
+        value="{{form.content}}"
+        type='textarea'
+        placeholder="请输入商品描述"
+      />
+
+    </view>
+
+    <view class="eckes-form-btn">
+      <button 
+        class="eckes-submit" 
+        formType="submit" 
+        disabled="{{submitDisabled}}"
+      >
+      更新商品
+      </button>
+    </view>
+  </form>
+
+</view>

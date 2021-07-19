@@ -1,0 +1,208 @@
+<wxs module="role">
+var _join = function(obj){
+  return Object.keys(obj).join(",");
+};
+module.exports = {
+	_join:_join
+}
+</wxs>
+<view class="container">
+  <!-- banner海报 -->
+  <view class="section-poster">
+    <swiper indicator-dots autoplay circular>
+      <swiper-item wx:for="{{form.imgUrl}}">
+        <view class="swiper-item">
+          <image src="{{host+prefix+item}}" mode="aspectFill"></image>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="section-content">
+    <view class="i-title">
+      {{form.name}}
+    </view>
+    <view class="i-subtitle">
+      {{form.subhead}}
+    </view>
+    <view class="price-box flex">
+      <view class="i-price">
+        ￥{{form.priceDiscount>0?form.priceDiscount:form.price}}
+        <text wx:if="{{form.priceDiscount>0}}">{{form.price}}</text>
+      </view>
+      <view class="i-sales">
+        销量：{{form.sales}}
+      </view>
+    </view>
+    <view class="i-subtitle">
+      {{form.typedesc}}
+      <view wx:if="{{form.id}}" class="i-sales" style="float:right;">
+        编码：{{form.id}}
+      </view>
+    </view>
+
+    <view class="i-c-title">
+      商品颜色
+    </view>
+    <view class="i-size flex">
+      <view data-idx="{{index}}" data-value="{{item}}" bindtap="handlerColor" class="i-size-item {{colorAct==index ?'size-action':''}}" wx:for="{{form.color}}">
+        {{item}}
+      </view>
+    </view>
+
+    <view class="i-c-title">
+      规格尺寸
+    </view>
+    <view class="i-size flex">
+      <view data-idx="{{index}}" data-value="{{item}}" bindtap="handlerSize" class="i-size-item {{sizeAct==index?'size-action':''}}" wx:for="{{form.size}}">
+        {{item}}
+      </view>
+    </view>
+
+    <view class="i-c-title">
+      数量
+    </view>
+    <view class="i-size flex">
+      <van-stepper min="{{1}}" disable-input max="20" bind:change="onStepper"/>
+    </view>
+    
+    <view class="i-c-title">
+      商品详情
+    </view>
+    <view class="i-content">
+      {{form.content}}
+    </view>
+  </view>
+  
+  <van-popup
+    show="{{ show }}"
+    bind:close="onPopupClose"
+    closeable
+    close-on-click-overlay
+    position="bottom"
+    custom-style="height: 75%;padding-bottom:120rpx;z-index:334;"
+  >
+    <view class="eckes-box">
+      <view>已选颜色和规格：</view>
+      <view class="size-tips">
+          {{send.color}}   {{send.size}} 
+      </view>
+      <eckes-input 
+				label="收货地址："
+				type="radio"
+        noborder
+      >
+        <view wx:if="{{address.length==0}}" style="color:#999;font-size:24rpx;">
+          暂未查询到收货地址，请点击 <text bindtap="showAddress" style="color:#ff5b5b">添加</text>
+        </view>
+        <block wx:for="{{address}}">
+          <view class="flex ck-flex">
+            <view class="ck-icon {{item.isMain==0?'':'ck-action'}}" data-index="{{index}}" bindtap="toSetCk">
+              <van-icon name="success" />
+            </view>
+            <view class="ck-title" data-index="{{index}}" bindtap="toSetCk" >
+              <view class="ck-title-txt">
+                {{item.address}}
+              </view>
+              <view class="ck-desc">
+                {{item.name}}
+              </view>
+              <view class="ck-desc">
+                {{item.phone}}
+              </view>
+            </view>
+          </view>
+        </block>
+      </eckes-input>
+<!-- 
+      <eckes-input 
+				label="同区加急："
+				type="radio"
+        noborder
+      >
+        <view class="input-tip-btn">
+          市区范围：48小时内送达
+        </view>
+        <view class="input-tip-btn">
+          市区范围加急：付款之后1.5小时内送达，3元/单;
+        </view>
+        <view class="input-tip-btn">
+          <text>多单同时送达仅收取一次，多余加急费用送达时返还</text>;
+        </view>
+        <view class="input-tip-btn">
+          <text>不可抗力因素顺延，加急之后退货不退加急费用，请悉知</text>
+        </view>
+				<radio-group name="areaFlag" bindchange="areaFlagRadioChange">
+					<label><radio value="0" checked/>不加急</label>
+					<label><radio value="1"/>加急</label>
+				</radio-group>
+      </eckes-input>
+-->
+      <eckes-input 
+        label="数量："
+        type="radio"
+        noborder
+      >
+        <van-stepper min="{{1}}" disable-input max="20" bind:change="onStepper"/>
+      </eckes-input>
+
+      <eckes-input 
+        label="下单备注：" 
+        name="remark"
+        maxlength="{{128}}"
+        noborder
+        bindinput="onInput"
+        placeholder="请在此处输入备注"
+      />
+      <view class="totalprice">
+        商品总金额：{{form.discount>0?form.discount:form.price}}*{{number}}= <text style="color: #ff5b5b; font-size:36rpx; font-weight:bold;">￥{{(form.discount>0?form.discount:form.price)*number}}</text>
+      </view>
+    </view>
+  </van-popup>
+
+  <view class="section-action flex">
+    <view class="fav">
+      <van-icon size="46rpx" name="like-o" color="#ff5b5b" />
+    </view>
+    <view style="flex:1;justify-content: flex-end; padding-right:20rpx" class="flex">
+
+      <view class="add-cart cart-blue" style="margin:unset;" bindtap="onAddCart">
+        加入购物车 <van-icon size="36rpx" name="cart-o" style="padding-top:12rpx;vertical-align:top;"/>
+      </view>
+
+      <view class="add-cart" bindtap="onSale" wx:if="{{false}}">
+        {{subBtn}} <van-icon size="36rpx" name="share" style="padding-top:12rpx;vertical-align:top;"/>
+      </view>
+    </view>
+  </view>
+
+  <van-dialog
+    use-slot
+    title="添加收货地址"
+    show="{{ showAddress }}"
+    showConfirmButton="{{false}}"
+    closeOnClickOverlay
+  >
+    <form class="eckes-form" bindsubmit="eckesFormSubmit">
+      <view class="section">
+        <eckes-input label="姓名" name="name" required placeholder="请输入收货人姓名" maxlength="{{24}}" />
+
+        <eckes-input label="手机号" name="phone" type="number" required maxlength="{{11}}" placeholder="请输入收货人手机号" />
+
+        <eckes-input noborder label="地址" name="address" type="number" required maxlength="{{200}}" placeholder="请输入收货地址" />
+      </view>
+      <view class="eckes-form-btn">
+        <button class="eckes-submit" formType="submit" disabled="{{submitDisabled}}">
+          添加
+        </button>
+      </view>
+    </form>
+  </van-dialog>
+
+
+  <view class="shop-cart" bindtap="goCart" wx:if="{{cartNum>0}}">
+    <image src="/assets/images/mine/shopcart.png" />
+    <view>{{cartNum}}</view>
+  </view>
+
+</view>

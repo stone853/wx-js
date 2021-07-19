@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="privilege">
+    <view class="e-title">定制小程序</view>
+    <view class="e-subtitle">Create Own mini-program</view>
+  </view>
+
+  <view class="section">
+    <image mode="widthFix" class="w1" src="{{prefix_img}}/wxapp/minip.png"></image>
+  </view>
+
+
+</view>

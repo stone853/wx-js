@@ -1,0 +1,1 @@
+<web-view src="{{host}}/hg5/{{url}}" bindload="h5Load" bindmessage="h5PostMessage"></web-view>

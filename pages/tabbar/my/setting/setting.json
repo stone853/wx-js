@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "设置",
+  "usingComponents": { 
+    "eckes-input":"../../../../dist/eckes/input/index",
+    "van-icon":"../../../../dist/vant-weapp/icon/index",
+    "van-cell":"../../../../dist/vant-weapp/cell/index",
+    "van-empty":"../../../../dist/vant-weapp/empty/index",
+    "van-dialog":"../../../../dist/vant-weapp/dialog/index"
+    }
+}

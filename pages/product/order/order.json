@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "订单详情",
+  "usingComponents": {
+    "eckes-input":"../../../dist/eckes/input/index",
+    "van-icon":"../../../dist/vant-weapp/icon/index"
+  }
+}

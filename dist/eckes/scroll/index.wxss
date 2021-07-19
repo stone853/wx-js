@@ -1,0 +1,25 @@
+.scroll-view{
+    white-space: nowrap;
+    border-bottom: 1px solid #efefef;
+	text-align: center;
+  }
+  .scroll-view-item{
+    display: inline-block;
+    padding: 8rpx 34rpx;
+    font-size: 28rpx;
+    line-height: 45rpx;
+    position: relative;
+  }
+  .scroll-view-item.action{
+    color: #1D99F8;
+  }
+  .scroll-view-item.action:before{
+    content: "";
+    background: #1D99F8;
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 36rpx;
+    left: 50%;
+    margin-left:-18rpx;
+  }

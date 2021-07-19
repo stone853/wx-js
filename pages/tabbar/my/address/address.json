@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的徽章",
+  "usingComponents": {
+    "eckes-input":"../../../../dist/eckes/input/index",
+    "van-icon":"../../../../dist/vant-weapp/icon/index",
+    "van-empty":"../../../../dist/vant-weapp/empty/index",
+    "van-dialog":"../../../../dist/vant-weapp/dialog/index"
+  }
+}

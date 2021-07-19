@@ -1,0 +1,33 @@
+.container{
+  position: relative;
+  padding-top: 44px;
+}
+
+.delete-btn{
+  background: rgba(242,30,36,1);
+  color: #fff;
+  width: 45px;
+  height: 65px;
+  text-align: center;
+  line-height: 65px;
+}
+.search-cell{
+  color: #fff !important;
+  background:#0BB7A5 !important;
+}
+.search{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 750rpx;
+  z-index: 23;
+}
+.search-cell .van-cell__value{
+  color: #fff;
+}
+.big .van-cell__value{
+  color: rgb(255, 49, 49);
+}
+.small .van-cell__value{
+  color: #0BB7A5;
+}

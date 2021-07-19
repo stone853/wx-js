@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "van-dialog": "../dist/vant-weapp/dialog/index"
+  }
+}

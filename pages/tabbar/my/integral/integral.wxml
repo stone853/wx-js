@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="explain">
+    <view class="e-title">积分说明</view>
+    <view class="e-subtitle">Integral Explain</view>
+    <view class="e-desc">
+      <view class="e-desc-m">积分永久有效</view>
+      <view class="e-desc-sub">积分获取渠道：购物、任务、成就、充值、分享等；</view>
+    </view>
+    <view class="e-desc">
+      <view class="e-desc-m">积分用途</view>
+      <view class="e-desc-sub">每200积分抵1元；200积分起抵。</view>
+      <view class="e-desc-sub">兑换积分商品和礼包</view>
+    </view>
+
+  </view>
+
+  <view class="privilege">
+
+
+    <view class="e-title">积分商城</view>
+    <view class="e-subtitle">Integral Store</view>
+    <view class="e-desc">
+      <view class="e-desc-m">火热筹备中</view>
+    </view>
+
+
+    <view class="e-title">积分储值</view>
+    <view class="e-subtitle">Integral Charge</view>
+    
+    <view class="price-list ">
+      <van-cell wx:for="{{price}}" class="item" is-link bind:click="toPay" data-id="{{item.id}}">
+        <view slot="title">
+          <view class="van-cell-text">积分：<text class="price-point">{{item.point}}</text> + <text class="price-add">{{item.p_add}}</text></view>
+        </view>
+        <view slot="value">
+          <view class="price-value"><text>￥</text> {{item.discount/100}} <text style="color:#999;text-decoration: line-through;font-size:24rpx">￥{{item.price/100}}</text></view>
+        </view>
+      </van-cell>
+    </view>
+
+  </view>
+
+
+  <view class="m_coupon_fixed" bindtap="goPage">
+		我的 <text style="font-weight:bold; color:#2C6CDE;">积分账单</text>
+	</view>
+
+
+</view>

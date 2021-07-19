@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "开店审核",
+  "navigationBarBackgroundColor": "#2196F3",
+  "navigationBarTextStyle":"white",
+  "usingComponents": {
+    "eckes-input":"../../../../../dist/eckes/input/index",
+    "van-uploader":"../../../../../dist/vant-weapp/uploader/index",
+    "van-icon":"../../../../../dist/vant-weapp/icon/index"
+  }
+}

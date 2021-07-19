@@ -1,0 +1,36 @@
+<view class="container">
+
+  <view class="explain">
+    <view class="e-title">游戏积分说明</view>
+    <view class="e-subtitle">Game Point</view>
+    <view class="e-desc">
+      <view class="e-desc-m">刷新最高分来领取积分吧~</view>
+    </view>
+  </view>
+
+
+  <view class="item-box" wx:for="{{list}}" bindtap="goPage" data-url="{{item.url}}{{item.point?'?i='+item.point:''}}" data-id="{{item.id}}">
+    <van-card
+      tag="{{item.tag}}"
+      price="{{'点击次数：'+item.play}}{{item.point?'; 最高分：'+item.point:''}}"
+      desc="{{item.rule}}"
+      title="{{item.name}}"
+      thumb="{{ host+'/hg5/'+item.cover }}"
+    >
+      <view slot="footer" class="footer">
+        <view class="btn">开始玩</view>
+      </view>
+    </van-card>
+  </view>
+
+  <view style="padding:0 25rpx;">
+    <van-divider
+      contentPosition="center"
+      customStyle="color: #c3c3c3; border-color: #c3c3c3; font-size: 24rpx;"
+    >
+      更多积分游戏，敬请期待
+    </van-divider>
+  </view>
+
+
+</view>

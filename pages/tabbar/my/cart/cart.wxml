@@ -1,0 +1,266 @@
+<wxs src="../../../../wxs/util.wxs" module="__" />
+<view class="shopcart">
+    <view class="cartInfo">
+        <view class="cart" wx:if="{{list.length>0}}">
+            <eckes-scroll list="{{list}}" bindtotap="changeNav"></eckes-scroll>
+            <view class="shopcart_header">
+                <view class="header_count">
+                    共 <text class="sizebold">{{total}}</text> 件商品
+                </view>
+                <!-- <view class="header_edit" wx:if="{{isedit}}" bindtap="onclickhiddenedit">
+                    <text>完成</text>
+                </view>
+                <view class="header_edit" wx:else bindtap="onclickedit">
+                    <text>编辑</text>
+                </view> -->
+
+                <!-- hidden="{{list[actIdx].id==1}}" -->
+                <view class="header_edit"  bindtap="showAddressPopup">
+                    <text>选择收货地址</text>
+                </view>
+            </view>
+            <view class="address">
+                <image src="/assets/images/dizhi-3.png"></image>
+                <view>{{address.address}}</view>
+                <view>{{address.name}}</view>
+                <view>{{address.phone}}</view>
+                <view class="yh-realTime" bindtap="showYH" wx:if="{{list[actIdx].id==1}}">
+                    <image src="/assets/images/newImg/tool5.png"></image> 雅惠即时送
+                </view>
+            </view>
+
+            <view class="coupon">
+              <van-cell title="优惠券" icon="coupon-o" is-link value="{{_coupon.id?'已选优惠'+_coupon.price+'元':''}}" bind:click="chooseCoupon" />
+            </view>
+            <view class="coupon">
+              <van-cell
+                icon="points"
+                title="积分：{{ _integral.total||0 }}{{_integral.use?' - '+_integral.usePoint:''}}"
+                value-class="value-class"
+                clickable
+                bind:click="toggle"
+                value="{{_integral.use?'已减'+_integral.price+'元':''}}" 
+              >
+                <van-checkbox value="{{ _integral.use }}" catch:tap="noop" />
+              </van-cell>
+            </view>
+
+            <block wx:for="{{list}}" wx:for-item="store" wx:for-index="sidx">
+              <scroll-view scroll-y="true" style="height: calc(100vh - 480rpx);" hidden="{{sidx!=actIdx}}">
+                    <view class="list-store">
+                        <!-- <view class="store-name flex" data-id="{{store.id}}">
+                            <view class="ck">
+                                <van-checkbox value="{{ store.checked }}" data-sidx="{{sidx}}" bind:change="onStoreChange"> </van-checkbox>
+                            </view>
+                            <view class="sname">{{store.name}} <van-icon style="vertical-align:middle;" name="arrow" /></view>
+                        </view> -->
+                        <view class="items">
+
+                            <block wx:for="{{store.order}}" wx:for-item="order" wx:for-index="oidx">
+                            <van-swipe-cell
+                                id="swipe-cell-{{sidx+ '-' +oidx}}"
+                                right-width="{{ 45 }}"
+                                async-close
+                                data-oidx="{{oidx}}"
+                                data-sidx="{{sidx}}"
+                                bind:close="onOrderDelete"
+                            >
+
+                            <view class="item flex">
+                                <view class="ck">
+                                    <van-checkbox data-oidx="{{oidx}}" data-sidx="{{sidx}}" value="{{ !order.notChecked }}" bind:change="onOrderChange"> </van-checkbox>
+                                </view>
+                                <view class="cover">
+                                    <image src="{{host+prefix+order.imgUrl}}"></image>
+                                </view>
+                                <view class="main">
+                                    <view class="pname">{{order.name}}</view>
+                                    <view class="psize" hidden="{{order.size=='均码'}}">规格：{{order.size}}</view>
+                                    <view class="psize" hidden="{{order.size=='默认'}}">颜色：{{order.color}}</view>
+                                    <view class="price">￥{{__.coupontoFixed(order.price)}}</view>
+                                    <view class="pnumber">
+                                        <van-stepper min="{{1}}" data-sidx="{{sidx}}" data-oidx="{{oidx}}" value="{{order.count}}" disable-input max="20" bind:change="onStepper"/>
+                                    </view>
+                                </view>
+                            </view>
+
+
+                                <view slot="right" class="order-delete-btn">删除</view>
+                            </van-swipe-cell>
+                            </block>
+
+                        </view>
+                    </view>
+                    
+                    <view class="tips-del" wx:if="{{store.order.length>0}}" style="color:#bbb;font-size:24rpx;text-align:center;">右滑删除</view>
+              </scroll-view>
+            </block>
+
+        </view>
+        <view class="m_empty_cart" bindtap="onClickLinkHome" hidden="{{list.length!=0}}">
+            <image class="u_empty_img" src="/assets/images/mine/nocarts.png"></image>
+            <text class="u_empty_text">购物车空空如也，快去选购商品吧～</text>
+            <view class="u_empty_btn">去逛逛</view>
+        </view>
+    </view>
+
+    
+    <view class="cart_total" wx:if="{{list.length>0}}">
+
+
+        <view class="cartTotal couponprice" >
+          <view class="totalCount">合计：<text class="cartTotalPrice">¥{{__.coupontoFixed(amount-_coupon.price-_integral.price)}}</text></view>
+        </view>
+        
+        <view class="cartSumb {{amount<=0?'unPay':''}}" bindtap="toPay">
+            <text>下单</text>
+        </view>
+    </view>
+</view>
+
+<van-popup
+    show="{{ showAddressPopup }}"
+    bind:close="onPopupClose"
+    closeable
+    close-on-click-overlay
+    position="bottom"
+    custom-style="height:480rpx;padding-bottom:110rpx;z-index:334;"
+  >
+    <view class="eckes-box">
+      <eckes-input 
+        label="收货地址：{{list[actIdx].isOnShop==1?'该店铺不支持更改其他地址':''}}"
+        type="radio"
+        noborder
+      >
+        <view wx:if="{{addressList.length==0}}" style="color:#999;font-size:24rpx;">
+          暂未查询到收货地址，请点击 <text bindtap="showAddress" style="color:#ff5b5b">添加</text>
+        </view>
+        <block wx:for="{{addressList}}">
+          <view class="flex ck-flex" style="padding-top:10rpx" wx:if="{{list[actIdx].isOnShop!=1 || (index==addressList.length-1 && list[actIdx].isOnShop==1)}}">
+            <view class="ck-title" data-index="{{index}}" bindtap="toSetCk" >
+              <view class="ck-title-txt">
+                {{item.address}}
+              </view>
+              <view class="ck-desc">
+                {{item.name}}
+              </view>
+              <view class="ck-desc">
+                {{item.phone}}
+              </view>
+            </view>
+          </view>
+        </block>
+      </eckes-input>
+    </view>
+</van-popup>
+  <van-dialog
+    use-slot
+    title="添加收货地址"
+    show="{{ showAddress }}"
+    showConfirmButton="{{false}}"
+    closeOnClickOverlay
+  >
+    <form class="eckes-form" bindsubmit="eckesFormSubmit">
+      <view class="section">
+        <eckes-input label="姓名" name="name" required placeholder="请输入收货人姓名" maxlength="{{24}}" />
+
+        <eckes-input label="手机号" name="phone" type="number" required maxlength="{{11}}" placeholder="请输入收货人手机号" />
+
+        <eckes-input noborder label="地址" name="address" type="number" required maxlength="{{200}}" placeholder="请输入收货地址" />
+      </view>
+      <view class="eckes-form-btn">
+        <button class="eckes-submit" formType="submit" disabled="{{submitDisabled}}">
+          添加
+        </button>
+      </view>
+    </form>
+  </van-dialog>
+
+  <van-dialog
+    use-slot
+    title="雅惠"
+    show="{{ showYH }}"
+    showConfirmButton="{{false}}"
+    closeOnClickOverlay
+  >
+    <form>
+      <view class="section YHform">
+        <eckes-input useButtonSlot label="楼层桌号" bindinput="setYHtext" required placeholder="例：3楼5号：3#5" maxlength="{{24}}">
+          <button 
+            wx:if="{{phone!=1}}"
+            class="eckes-btn"
+            slot="button"
+            open-type="getPhoneNumber" 
+            bindgetphonenumber="getphonenumber"
+          >
+            微信授权手机号
+          </button>
+        </eckes-input>
+        <view class="nophone" wx:if="{{phone!=1}}">请先绑定手机号，以免送货出现问题</view>
+      </view>
+      <view class="eckes-form-btn">
+        <button class="eckes-submit" bindtap="setYH">
+          添加
+        </button>
+      </view>
+    </form>
+  </van-dialog>
+
+  <van-dialog
+    use-slot
+    title="我的优惠券"
+    show="{{ showCP }}"
+    showConfirmButton="{{false}}"
+    closeOnClickOverlay
+  >
+    <view class="coupon_list">
+        <view class="active_item">
+            <view class="m_coupon_sec">
+                <view class="m_coupon_lst">
+                    <view style="opacity:{{coupon.moneyoff>amount?.3:1}}" class="m_coupon_lst_li" wx:for="{{CP_list}}" wx:for-index="cidx" wx:for-item="coupon" wx:key="cidx" data-index="{{cidx}}" bindtap="chooseCP">
+                        <view class="m_coupon_icon" wx:if="{{coupon.id==_coupon.id}}">
+                          <van-icon name="checked" color="#1D99F8" size="46rpx" />
+                        </view>
+                        <view>
+                            <image class="m_coupon_bg" src="{{imageUrl}}/counp_bg.png"></image>
+                        </view>
+                        <view class="m_coupon_box">
+                            <view class="m_coupon_hd">
+                                <view class="m_coup_amount">
+                                    <view class="u_coup_sbol">
+                                        <view class="f_rmb">￥</view>
+                                    </view>
+                                    <view class="u_coup_num">{{coupon.price}}</view>
+                                </view>
+                                <view class="u_coup_des">
+                                    满{{coupon.moneyoff}}可用</view>
+                            </view>
+                            <view class="m_coupon_bd">
+                                <!--  -->
+                                <view class="u_coup_tname">
+                                    <view class="u_coupon_float">
+                                      {{coupon.ptype==0?'服装':''}}
+                                      {{coupon.ptype==1?'副食':''}}
+                                      {{coupon.ptype==9?'通用':''}}
+                                      券
+                                    </view>
+                                    <view class="u_line_clamp">
+                                        <view wx:if="{{coupon.name}}">{{coupon.name}}</view>
+                                    </view>
+                                </view>
+                                <view class="u_coup_date_range">
+                                    <text>有效期至：\n{{coupon.endTime}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="m_coupon_notab" wx:if="{{CP_list.length==0}}">
+            <image class="m_coupon_img_not" src="{{imageUrl}}/ch_yhq.png"></image>
+            <view>暂无优惠券～</view>
+            <view class="u_empty_btn" bindtap="goPage">去领券中心</view>
+        </view>
+    </view>
+  </van-dialog>

@@ -1,0 +1,79 @@
+<wxs src="../../../../../wxs/util.wxs" module="__" />
+<view class="container">
+  <view class="refund-list" hidden="{{showCart}}">
+    <view class="list" wx:for="{{list}}" bindtap="getDetail" data-idx="{{index}}">
+      <view class="title">订单号：{{item.out_trade_no}}</view>
+      <view class="createTime"><van-icon name="clock-o" />{{item.createTime}}</view>
+      <view class="title">总金额：<text style="color:red;font-weight:bold; font-size:28rpx;">{{item.amount}}</text></view>
+      <view class="btn">
+        {{item.status==0?"待确认":""}}
+        <text style="color:green" wx:if="{{item.status==1}}">已提交</text>
+      </view>
+    </view>
+
+    <view class="blank" wx:if="{{list.length==0}}">
+      <van-empty description="暂无待退款单~" />
+    </view>
+  </view>
+
+  <view class="shopcart" hidden="{{!showCart}}">
+    <view class="cartInfo">
+      <view class="cart">
+          <view class="shopcart_header">
+              <view class="header_count">
+                  共 <text class="sizebold">{{detail.total}}</text> 件商品
+              </view>
+              <view class="header_edit" bindtap="toRefund" hidden="{{status==1}}">
+                <text style="color:red;margin-right:12rpx;font-size:28rpx;font-weight:bold;">退款</text>
+              </view>
+              <view class="header_edit" bindtap="stopRefund" hidden="{{status==1}}">
+                <text style="color:orange;margin-right:12rpx;font-size:28rpx;font-weight:bold;">拒绝</text>
+              </view>
+              <view class="header_edit" bindtap="goBack">
+                <text>返回</text>
+              </view>
+          </view>
+          <view class="list-store">
+              <view class="store-name flex">
+                  <view class="sname">{{detail.sname}} <van-icon style="vertical-align:middle;" name="arrow" /></view>
+              </view>
+              <view class="store-name ">
+                  <view class="sname">收货地址：{{detail.address}}</view>
+              </view>
+              <view class="store-name">
+                  <view class="sname">总金额：{{detail._amount}}</view>
+              </view>
+              <view class="store-name">
+                  <view class="sname">实付金额：{{detail.amount}}</view>
+              </view>
+              <view class="store-name " wx:if="{{detail.coupon>0}}">
+                  <view class="sname">优惠券金额：{{detail.coupon}}</view>
+              </view>
+              <view class="store-name " wx:if="{{detail.integral>0}}">
+                  <view class="sname">使用积分：{{detail.integral}}</view>
+              </view>
+              <view class="items">
+                <block wx:for="{{detail.order}}" wx:for-item="order" wx:for-index="oidx">
+                  <view class="item flex">
+                      <view class="cover">
+                          <image src="{{host+order.pcover}}"></image>
+                      </view>
+                      <view class="main">
+                          <view class="pname">{{order.pname}}</view>
+                          <view class="psize">规格：{{order.size}}</view>
+                          <view class="psize">颜色：{{order.color}}</view>
+                          <view class="price">￥{{__.coupontoFixed(order.pprice)}}</view>
+                          <view class="pnumber">
+                            x{{order.pnumber}}
+                          </view>
+                      </view>
+                  </view>
+                </block>
+              </view>
+          </view>
+      </view>
+    </view>
+  </view>
+
+
+</view>

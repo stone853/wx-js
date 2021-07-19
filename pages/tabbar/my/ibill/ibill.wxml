@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="search">
+    <van-cell custom-class="search-cell" title="日期区间" value="{{ date }}" bind:click="onDisplay" />
+  </view>
+  <van-calendar
+    show="{{ show }}"
+    type="range"
+    color="#0BB7A5"
+    bind:close="onClose"
+    bind:confirm="onConfirm"
+    min-date="{{ minDate }}"
+    default-date="{{ defaultDate }}"
+    max-range="{{ 90 }}"
+  />
+
+  <view class="list">
+    <block  wx:for="{{list}}">
+      <van-swipe-cell
+        id="swipe-cell"
+        right-width="{{ 45 }}"
+        async-close
+        data-id="{{item.id}}"
+        data-idx="{{index}}"
+        bind:close="onDelete"
+      >
+        <van-cell class="{{item.integral>0?'big':'small'}}" title="{{item.remark}}" value="{{item.integral}}" label="{{item.createTime}}"/>
+        <view slot="right" class="delete-btn">删除</view>
+      </van-swipe-cell>
+    </block>
+
+  </view>
+  
+  <view class="empty" wx:if="{{list.length==0}}">
+    <van-empty description="暂无账单数据~" />
+  </view>
+
+
+</view>

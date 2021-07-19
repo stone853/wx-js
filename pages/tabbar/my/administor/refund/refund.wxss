@@ -1,0 +1,103 @@
+.container {
+	position: relative;
+	padding: 20rpx;
+}
+.list{
+	position: relative;
+	margin-bottom: 20rpx;
+	border:1px solid #d3ebff;
+	box-shadow: #a5d6ff 2px 2px 0;
+}
+.list view{
+	font-size: 26rpx;
+	padding: 8rpx;
+}
+.createTime{
+	color: #999;
+}
+.btn{
+	position: absolute;
+	bottom: 10rpx;
+	right:10rpx;
+	font-weight: bold;
+	color: #ff314c;
+}
+/* 
+ */
+ 
+.shopcart_header{
+	display: flex;
+	height: 62rpx;
+	background: #fff;
+	width: 710rpx;
+	position: fixed;
+	top:0;
+	z-index: 20;
+}
+.header_count{
+	 font-size:24rpx;
+	 font-weight:500;
+	 color:rgba(53,53,53,1);
+	 line-height:62rpx;
+	 flex: 1;
+	 padding-left:30rpx; 
+}
+.header_count .sizebold{
+	 font-weight: bold;
+}
+.header_edit{
+	 font-size:24rpx;
+	 color:rgba(111,111,111,1);
+	 line-height:62rpx;
+	 padding-right:20rpx; 
+}
+.cartInfo{
+ padding-bottom:120rpx; 
+ padding-top: 78rpx;
+}
+
+.goodList{
+overflow: hidden;
+}
+.cover,.cover image{
+ width: 158rpx;
+ height: 158rpx;
+}
+.list-store{
+ background: #fff;
+ margin-bottom: 15rpx;
+}
+.store-name{
+ padding: 0 15rpx;
+ height: 68rpx;
+ align-items: center;
+ line-height: 67rpx;
+ border-bottom: 1px solid #e7e7e7;
+}
+.items{
+ padding-top: 40rpx;
+}
+.item{
+ padding: 0 15rpx 40rpx 15rpx;
+ height: 198rpx;
+}
+.main{
+ padding-left: 15rpx;
+ position: relative;
+ flex: 1;
+}
+.psize{
+ font-size: 24rpx;
+ color: #999;
+}
+.price{
+ position: absolute;
+ bottom:0;
+ color: #FB6317;
+ font-weight: bold;
+}
+.pnumber{
+ position: absolute;
+ bottom: 0;
+ right: 0;
+}

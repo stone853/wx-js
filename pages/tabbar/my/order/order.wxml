@@ -1,0 +1,50 @@
+<wxs src="../../../../wxs/util.wxs" module="__" />
+<view class="container">
+	<eckes-scroll list="{{navs}}" bindtotap="changeNav"></eckes-scroll>
+
+	<view class="nav-items">
+		<block wx:for="{{list}}">
+			<view class="active_item" hidden="{{item.length==0 || active!=index }}">
+					<view class="m_coupon_sec">
+							<view class="m_coupon_lst">
+									<view class="m_coupon_lst_li" wx:for="{{item}}" wx:for-index="cidx" wx:for-item="order" wx:key="cidx">
+											<image class="m_coupon_bg" src="{{host+order.pcover}}"></image>
+											<view class="m_coupon_box">
+													<view class="m_coupon_bd">
+															<!--  -->
+															<view class="u_coup_tname">
+																<view class="u_coupon_float">
+																	{{order.status=="101"?"已付款":""}}
+																	{{order.status=="102"?"已完成":""}}
+																	{{order.status=="107"?"申请退款中":""}}
+																	{{order.status=="108"?"已退款":""}}
+																</view>
+																{{order.pname}}...
+															</view>
+															<view class="u_coup_date_range">
+																{{order.createTime}}
+															</view>
+															<view class="u_coup_price">
+																￥{{__.coupontoFixed(order.amount/100)}}
+															</view>
+															<view bindtap="handleRefund" data-idx="{{cidx}}" class="u_refund" wx:if="{{order.status=='102'}}">
+																申请退款
+															</view>
+													</view>
+													<view class="m_coupon_ft">
+															<view class="u_btn u_btn_t" data-id="{{order.id}}"	bindtap="goPay" wx:if="{{order.status=='0'}}">去付款</view>
+													</view>
+											</view>
+									</view>
+							</view>
+					</view>
+			</view>
+			<view class="m_coupon_notab" wx:if="{{item.length==0 && active==index}}">
+					<image class="m_coupon_img_not" src="{{imageUrl}}/ch_yhq.png"></image>
+					<view>暂无订单～</view>
+					<!-- <view class="u_empty_btn" wx:if="{{index==0}}" bindtap="goPage">去领券中心</view> -->
+			</view>
+		</block>
+	</view>
+
+</view>

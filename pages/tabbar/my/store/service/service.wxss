@@ -1,0 +1,38 @@
+/* pages/my/my.wxss */
+.container {
+	position: relative;
+	padding: 0 15rpx;
+  min-height: 100vh;
+  background: #fff;
+  box-sizing: border-box;
+}
+.cell-item {
+  display: flex;
+  line-height: 85rpx;
+}
+
+.cell-icon {
+  height: 85rpx;
+  width: 85rpx;
+  font-size: 42rpx;
+}
+
+.cell-title {
+  width: 150rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.cell-subtitle {
+  text-align: right;
+  padding-right: 25rpx;
+  flex: 1;
+  color: #999;
+}
+
+.cell-hr {
+  margin: 15rpx 0;
+  height: 1px;
+  background: #eee;
+  width: 100%;
+}

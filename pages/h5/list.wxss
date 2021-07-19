@@ -1,0 +1,93 @@
+.container{
+  min-height: 100vh;
+  background: #f1f6ff;
+}
+.footer{
+  position: absolute;
+  right: 15rpx;
+  top: 12rpx;
+}
+.btn{
+  display: inline-block;
+  padding: 6rpx 24rpx;
+  color: rgb(85, 153, 255);
+  font-size: 26rpx;
+  border: 1px solid rgb(85, 153, 255);
+  border-radius: 15rpx;
+}
+.van-card__price .van-card__price-integer{
+  color: #999;
+  font-size: 26rpx;
+  font-weight: normal;
+}
+.van-card__content .van-card__desc{
+  font-size: 26rpx;
+  color: #328be6;
+  position: absolute;
+  bottom: 20px;
+}
+
+.explain{
+  background-image: linear-gradient(155deg,#000,#4b4b4b);
+  padding: 30rpx;
+  padding-bottom:1rpx;
+  margin-bottom: 25rpx;
+}
+.e-title{
+  /* color: #d69c63; */
+  color: #f7ce9e;
+  font-size: 34rpx;
+  font-weight: bold;
+  position: relative;
+  text-shadow: rgb(71, 71, 71) 1rpx 1rpx 0;
+  z-index: 2;
+}
+.e-title::before{
+  content: "";
+  position: absolute;
+  width: 95rpx;
+  height: 20rpx;
+  border-radius: 15rpx;
+  background: rgb(133, 104, 72);
+  opacity: .8;
+  z-index: -1;
+  bottom: -5rpx;
+  left: -5rpx;
+}
+.e-subtitle{
+  padding-top: 5rpx;
+  color: #6f6d6e;
+  font-size: 24rpx;
+  padding-bottom: 25rpx;
+}
+.e-desc{
+  padding-left: 40rpx;
+  padding-bottom: 30rpx;
+}
+.e-desc-m{
+  position: relative;
+  color: #f7ce9e;
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+}
+.e-desc-m::before{
+  content:"";
+  position: absolute;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background: #f7ce9e;
+  left: -40rpx;
+  top: 10rpx;
+  box-shadow: #d69c63 0 0 25rpx;
+}
+.e-desc-sub{
+  color: #6f6d6e;
+  font-size: 26rpx;
+  padding-bottom: 10rpx;
+}
+
+.item-box{
+  box-shadow:rgb(192, 226, 255) 0 5rpx 15rpx;
+  margin-bottom: 25rpx;
+}

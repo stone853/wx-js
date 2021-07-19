@@ -1,0 +1,27 @@
+<wxs module="role">
+var cover = function(imgUrl){
+  return imgUrl.split("_#eckes#_")[0];
+};
+module.exports = {
+	cover:cover
+}
+</wxs>
+<view class="container">
+  <van-search 
+  value="{{ value }}" 
+  placeholder="请输入搜索关键词" 
+  bind:search="onSearch"
+  style="position:fixed;top:0;left:0;width:750rpx;z-index:33;"
+  />
+
+  <view class="content">
+    <view bindtap="goDetail" data-id="{{item.id}}" class="item" wx:for="{{list}}">
+        <image src='{{host+prefix+role.cover(item.imgUrl)}}'></image>
+        <view class="item-content">
+          <view class="item-title">{{item.name}}</view>
+          <view class="item-subhead">{{item.subhead}}</view>
+          <view class="price">¥{{item.price}}</view>
+        </view>
+      </view>
+  </view>
+</view>

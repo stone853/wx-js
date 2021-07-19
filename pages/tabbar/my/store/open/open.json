@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "open",
+  "usingComponents": {
+    "eckes-input":"../../../../../dist/eckes/input/index",
+    "van-uploader":"../../../../../dist/vant-weapp/uploader/index",
+    "van-empty":"../../../../../dist/vant-weapp/empty/index"
+  }
+}

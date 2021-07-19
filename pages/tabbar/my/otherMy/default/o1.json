@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "o1",
+  "usingComponents": { 
+    "van-icon":"../../../../dist/vant-weapp/icon/index",
+    "van-cell":"../../../../dist/vant-weapp/cell/index"
+    },
+    "navigationStyle":"custom",
+    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#fff"
+}
