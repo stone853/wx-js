@@ -54,7 +54,6 @@ Page({
 		})
 	},
 	toGetUser(userInfo){
-		console.log(userInfo);
 		const data=userInfo?{nickName:userInfo.nickName,avatarUrl:userInfo.avatarUrl}:{};
 		//data.plf = app.globalData.plf;
 		$.ajax({

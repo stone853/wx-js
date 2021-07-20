@@ -125,7 +125,6 @@ Page({
     })
   },
   getCartNum(fn){
-    console.log('lailelelleelelel');
     $.ajax({
       url:router.O_CARTNUM+"?pid="+this.data.id,
       method:"GET"
@@ -147,23 +146,18 @@ Page({
   },
   onAddCart(){
     if(!a.globalData.userInfo.token){
-      console.log('aaaaaaaaaaaaaaaa');
       $.wxLogin(code=>{
         $.ajax({
-          url:router.USER_LOGIN,
-          method:"GET",
-          data:{code}
+          url:router.USER_LOGIN+"?code="+code,
+          method:"GET"
         }).then(res=>{
-          console.log('bbbbbbbbbbbbbbbbbbbbbbbbbb');
           if (res && res.code &&res.code === 1) {
-            console.log('dddddddddddddddddddddddddddddd');
             a.globalData.userInfo.token=res.message;
             this.getCartNum(this.onCart);
           }
         })
       })
     }else{
-      console.log('ccccccccccccccccccccccc');
       this.onCart();
     }
     return;
@@ -184,8 +178,8 @@ Page({
     //   return;
     // }
     obj.size = this.data.send.size;
-    obj.color = this.data.send.color;
-    obj.count  =this.data.number;
+    obj.color = this.data.send.color.join(',');;
+    obj.count  =this.data.number ;
     obj.pid = this.data.id;
     obj.imgUrl = this.data.form.imgUrl[0];
     obj.name = this.data.form.name;
@@ -402,12 +396,12 @@ Page({
     if(a.globalData.userInfo.token){
       this.getCartNum();
 
-      setTimeout(()=>{
-        $.ajax({
-          url:router.Achieve_SET+"?id=16",
-          noloading:true,
-        })
-      },1000*30)
+      // setTimeout(()=>{
+      //   $.ajax({
+      //     url:router.Achieve_SET+"?id=16",
+      //     noloading:true,
+      //   })
+      // },1000*30)
     }
   },
 

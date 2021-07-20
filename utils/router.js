@@ -51,8 +51,8 @@ const ORDER={
   O_ADDCART:'/cart/v1/insert',// post 添加购物车
   O_CARTNUM:'/cart/v1/selectAll',// get 购物车数量
   O_USERCART:'/cart/v1/selectGroupByP',// get 我的购物车
-  O_DELCART:'/delCart.php',// get 删除cart
-  O_SETCARTNUM:'/setCartNumber.php',// get 修改购物车商品数量
+  O_DELCART:'/cart/v1//delete',// get 删除cart
+  O_SETCARTNUM:'/cart/v1/update',// get 修改购物车商品数量
   O_PAYCARTSUCCESS:'/toWxPay_success.php',// get 购物车支付成功
   O_PAYCARTMonthSUCCESS:'/toWxPay_month_success.php',// get 月卡支付成功
   O_PAYCARTMonthSUCCESS:'/toWxPay_integral_success.php',// get 积分储值支付成功

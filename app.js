@@ -42,14 +42,14 @@ App({
         if (res.code) {
           //发起网络请求
           wx.request({
-            url: 'https://eckes.top/eckes_admin/php/wxapi/login.php',
-            method:"POST",
+            url: 'https://csh111.top/crm/user/v1/login',
+            method:"GET",
             data:{code:res.code},
             header: {
               token:"token_test"
             },
             success(res){
-              wx.setStorageSync('token', res.data.message);
+              wx.setStorageSync('token', res.message);
               fn();
             },
           })

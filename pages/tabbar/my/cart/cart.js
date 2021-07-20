@@ -377,7 +377,9 @@ Page({
     const { instance } = e.detail;
     const { sidx, oidx } = e.currentTarget.dataset;
     $.ajax({
-      url:router.O_DELCART+'?id='+this.data.list[sidx].order[oidx].id
+      //url:router.O_DELCART+'?id='+this.data.list[sidx].order[oidx].id
+      url:router.O_DELCART,
+      data:{"id":this.data.list[sidx].order[oidx].id}
     }).then(res=>{
       this.data.list[sidx].order.splice(oidx,1);
       this.setData({
@@ -468,8 +470,11 @@ Page({
       ["list["+sidx+"].order["+oidx+"].pnumber"]:detail,
       amount:this.setAmount()
     });
+   
     $.ajax({
-      url:router.O_SETCARTNUM+"?id="+this.data.list[sidx].order[oidx].id+"&pnumber="+detail
+      //url:router.O_SETCARTNUM+"?id="+this.data.list[sidx].order[oidx].id+"&pnumber="+detail,
+      url:router.O_SETCARTNUM,
+      data:{"id":this.data.list[sidx].order[oidx].id,"count":detail}
     }).then(res=>{
 
     })

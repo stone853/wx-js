@@ -208,11 +208,11 @@ module.exports = {
     showConfirmButton="{{false}}"
     closeOnClickOverlay
   >
-    <view class="section">
+    <!-- <view class="section">
       <image src="{{host+apiInfo.qrcode}}" mode="widthFix"></image>
 
       <view class="qr-notice">描述<van-icon name="question" color="#00aff3"/>：扫码购物返利 目前仅支持 收货地址 为 雅慧店内，后续将开通更多门店。</view>
-    </view>
+    </view> -->
   </van-dialog>
 
 </view>
