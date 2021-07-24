@@ -18,7 +18,7 @@ Component({
       pagePath:"/pages/tabbar/person/person",
       iconPath:'/assets/images/h21.png',
       selectedIconPath:'/assets/images/h2.png',
-      text: "捌柒陆叁"
+      text: "商品"
     }, 
     // {
     //   pagePath:'/pages/blank/index',

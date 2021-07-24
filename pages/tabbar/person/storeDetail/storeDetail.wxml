@@ -25,7 +25,7 @@ module.exports = {
 
         <scroll-view scroll-y="true" style="height: calc(100vh - 62rpx);" >
           <view class="item" wx:for="{{prod[i2][i3]}}">
-            <image src='{{host+role.cover(item.cover)}}' data-id="{{item.id}}" bindtap="goDetail"></image>
+            <image src='{{host+prefix+item.imgUrl}}' data-id="{{item.id}}" bindtap="goDetail"></image>
             <view class="item-content">
               <view class="item-title">{{item.name}}</view>
               <view class="item-subhead">{{item.subtitle}}</view>

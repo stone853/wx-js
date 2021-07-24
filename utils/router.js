@@ -86,13 +86,13 @@ const STORE={
   S_STATUS:'/storeStatus.php',// get 查询用户店铺状态
   S_INSERT:'/storeInsert.php',// post 申请开店 
   S_UPDATE:'/storeUpdate.php',// post 修改店铺信息
-  S_ALL:'/getAllStore.php',// get 获取店铺列表 status 
+  S_ALL:'/store/v1/selectAll',// get 获取店铺列表 status 
   S_SET:'/setStoreStatus.php',// get 审核店铺
 
-  S_VISIT:'/storeVisit.php',// get 访客访问商家店铺
+  S_VISIT:'/product/v1/selectDictProduct',// get 商品分类详情
   S_VISIT_CHANGE:'/storeVisit_Change.php',// get 访客切换店铺1级分类
-  S_VISIT2:'/storeVisit2.php',// get 访客点击商家二级分类
-  S_VISIT3:'/storeVisit3.php',// get 访客点击商家3级分类
+  S_VISIT2:'/product/v1/selectDictProduct2',// get 访客点击商家二级分类
+  S_VISIT3:'/product/v1/selectDictProduct3',// get 访客点击商家3级分类
   S_VISIT_CART:'/getCartNumberStore.php',// get 获取当前店铺当前用户的购物车列表
 
   S_INFO:'/storeService.php',//get 获取自己店铺单据信息

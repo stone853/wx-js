@@ -19,10 +19,11 @@ Page({
   },
   onLoad: function (options) {
     $.ajax({
-      url:router.S_ALL+"?status=1&plf="+getApp().globalData.plf
+      //url:router.S_ALL+"?status=1&plf="+getApp().globalData.plf
+      url:router.S_ALL
     }).then(res=>{
       this.setData({
-        store: res.data
+        store: res.list
       })
     })
   },

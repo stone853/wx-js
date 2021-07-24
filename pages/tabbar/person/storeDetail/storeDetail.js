@@ -16,7 +16,8 @@ Page({
     t3:[],
     t3ActKey:0,
 
-		host:$.host,
+    host:$.host,
+    prefix:$.prefix,
     prod:[],//右侧产品列表
     cartNum:0,
     cartList:[],
