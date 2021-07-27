@@ -26,7 +26,7 @@ function ajax(model) {
         if (a.globalData.userInfo.token) {
           header['token'] = a.globalData.userInfo.token;
         }
-        header.token = header.token || "234";
+        
 
         
         wx.request({

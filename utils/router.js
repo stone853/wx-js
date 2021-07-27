@@ -51,7 +51,7 @@ const ORDER={
   O_ADDCART:'/cart/v1/insert',// post 添加购物车
   O_CARTNUM:'/cart/v1/selectAll',// get 购物车数量
   O_USERCART:'/cart/v1/selectGroupByP',// get 我的购物车
-  O_DELCART:'/cart/v1//delete',// get 删除cart
+  O_DELCART:'/cart/v1/delete',// get 删除cart
   O_SETCARTNUM:'/cart/v1/update',// get 修改购物车商品数量
   O_PAYCARTSUCCESS:'/toWxPay_success.php',// get 购物车支付成功
   O_PAYCARTMonthSUCCESS:'/toWxPay_month_success.php',// get 月卡支付成功
@@ -93,7 +93,7 @@ const STORE={
   S_VISIT_CHANGE:'/storeVisit_Change.php',// get 访客切换店铺1级分类
   S_VISIT2:'/product/v1/selectDictProduct2',// get 访客点击商家二级分类
   S_VISIT3:'/product/v1/selectDictProduct3',// get 访客点击商家3级分类
-  S_VISIT_CART:'/getCartNumberStore.php',// get 获取当前店铺当前用户的购物车列表
+  S_VISIT_CART:'/cart/v1/selectAll',// get 获取当前店铺当前用户的购物车列表
 
   S_INFO:'/storeService.php',//get 获取自己店铺单据信息
   S_WAIT:'/storeWait.php',//get 待发货订单

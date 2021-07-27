@@ -4,6 +4,7 @@ Page({
   data: {
     store:[],
     host:$.host,
+    prefix:$.prefix,
     prefix_img:$.host+$.prefix_img,
   },
   goStore(e){

@@ -178,7 +178,7 @@ Page({
     //   return;
     // }
     obj.size = this.data.send.size;
-    obj.color = this.data.send.color.join(',');;
+    obj.color = this.data.send.color;
     obj.count  =this.data.number ;
     obj.pid = this.data.id;
     obj.imgUrl = this.data.form.imgUrl[0];
@@ -261,7 +261,7 @@ Page({
           method:"GET",
           data:{code}
         }).then(res=>{
-          a.globalData.userInfo.token=res.data.token;
+          a.globalData.userInfo.token=res.message;
           this.onSubmit();
         })
       })
@@ -335,7 +335,7 @@ Page({
           method:"POST",
           data:{code}
         }).then(res=>{
-          a.globalData.userInfo.token=res.data.token;
+          a.globalData.userInfo.token=res.message;
           this.searchAddress();
         })
       })
@@ -368,8 +368,8 @@ Page({
     }).then(res=>{
       if (res && res.data) {
         res.data.imgUrl = res.data.imgUrl && res.data.imgUrl.split(",");
-        res.data.size = res.data.size && res.data.size.split(/\s+/);
-        res.data.color = res.data.color && res.data.color.split(/\s+/);
+        res.data.size = res.data.size && res.data.size.split(",");
+        res.data.color = res.data.color && res.data.color.split(",");
         this.setData({
           form:res.data,
           id:options.id,

@@ -2,9 +2,9 @@
   
   <view class="section section-store">
     <view class="store" wx:for="{{store}}" >
-      <image class="store-bg" src="{{host+item.bg}}" lazy-load mode="aspectFill"></image>
+      <image class="store-bg" src="{{host+prefix+item.bg}}" lazy-load mode="aspectFill"></image>
       <view class="store-content flex" bindtap="goStore" data-id="{{item.id}}" data-name="{{item.name}}">
-        <image class="store-cover" src="{{host+item.cover}}" lazy-load></image>
+        <image class="store-cover" src="{{host+prefix+item.cover}}" lazy-load></image>
         <view class="store-name">
           {{item.name}}
           <view class="store-subtitle">{{item.subtitle}}</view>

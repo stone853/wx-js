@@ -56,15 +56,15 @@ Page({
   addCartSpec(){
     this.onCart(this.data.send, this.data.pnumber, ()=>{
       this.setData({
-        pnumber:1,
+        //pnumber:1,
         showChoose:false
       })
     });
   },
   onChooseSpec(e){
     let {item}=e.currentTarget.dataset;
-    let color=item.color.split(" ");
-    let size=item.size.split(" ");
+    let color=item.color.split(",");
+    let size=item.size.split(",");
     item.color = color[0];
     item.size = size[0];
     this.setData({
@@ -154,19 +154,22 @@ Page({
   },
   getCartNum(fn,prod){
     $.ajax({
-      url:router.S_VISIT_CART+"?sid="+this.sid
+      url:router.S_VISIT_CART
     }).then(res=>{
       const cartList = {};
-      for (let index = 0; index < res.data.data.length; index++) {
-        if(cartList[res.data.data[index].pid]){
-          cartList[res.data.data[index].pid]+=(+res.data.data[index].pnumber);
+      //let count =0
+      for (let index = 0; index < res.list.length; index++) {
+        if(cartList[res.list[index].pid]){
+          cartList[res.list[index].pid]+=(+res.list[index].count);
         }else{
-          cartList[res.data.data[index].pid]=(+res.data.data[index].pnumber);
+          cartList[res.list[index].pid]=(+res.list[index].count);
         }
+
+        //count += res.list[index].count;
         
       }
       this.setData({
-        cartNum:+res.data.total,
+        cartNum:res.list.length,
         cartList:cartList
       });
       if(fn){
@@ -182,13 +185,13 @@ Page({
     const obj = {};
     obj.size = prod.size;
     obj.color = prod.color;
-    obj.pnumber = pnumber||1;
+    obj.count = pnumber||1;
     obj.pid = prod.id;
-    obj.sid = this.sid;
-    obj.pcode = prod.code;
-    obj.pcover = prod.cover.split(",")[0];
-    obj.pname = prod.name;
-    obj.pprice = prod.discount>0?prod.discount:prod.price
+    //obj.sid = this.sid;
+    //obj.pcode = prod.code;
+    obj.imgUrl = prod.imgUrl.split(",")[0];
+    obj.name = prod.name;
+    obj.price = prod.priceDiscount>0?prod.priceDiscount:prod.price
     $.ajax({
       url:router.O_ADDCART,
       method:"POST",
@@ -199,9 +202,12 @@ Page({
         icon:"none",
       });
       this.setData({
-        cartNum:res.data.total,
-        ["cartList."+prod.id]:(this.data.cartList[prod.id]?(+this.data.cartList[prod.id])+obj.pnumber: obj.pnumber)
+        //cartNum:this.data.cartNum+obj.count,
+        ["cartList."+prod.id]:(this.data.cartList[prod.id]?(+this.data.cartList[prod.id])+obj.count: obj.count)
       });
+
+      this.getCartNum();
+      
       if(callback){
         callback();
       }
@@ -215,10 +221,10 @@ Page({
       $.wxLogin(code=>{
         $.ajax({
           url:router.USER_LOGIN,
-          method:"POST",
+          method:"GET",
           data:{code}
         }).then(res=>{
-          app.globalData.userInfo.token=res.data.token;
+          app.globalData.userInfo.token=res.message;
           this.getCartNum()
         })
       })
